@@ -10,7 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <title>GrapeOn!</title>
+        <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+        <title> GrapeOn</title>
         <meta name="description" content="GrapeOn provides local classifieds for grape products and grape events with food, drink, and vines">
     </head>
 
