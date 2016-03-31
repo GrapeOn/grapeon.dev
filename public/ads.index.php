@@ -1,6 +1,5 @@
 <?php
-//hard-coded array of ads, I think for test purposes only?
-
+//hard-coded array of ads, I think for test purposes?
 $ads_test_array = [
 	[
 		'discount_name' => 'Half Off All Grapes at Grape Parade!',
