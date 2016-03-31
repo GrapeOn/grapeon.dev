@@ -14,7 +14,7 @@ abstract class Model
 	protected static function dbConnect()
 	    {
 	        if (!self::$dbc) {
-	            $dbc = new PDO('mysql:host=127.0.0.1;dbname=grapes_db', 'vagrant', 'vagrant');
+	            $dbc = new PDO('mysql:host=127.0.0.1;dbname=grapes_db', 'grape', 'grape');
 	            self::$dbc = $dbc;
 	        }
 	    }
@@ -44,4 +44,16 @@ abstract class Model
 	{
 
 	}
+
+	all()
+	find(id)
+	delete()
+
+	public static function all()
+    {
+        self::dbConnect();
+        $stmt = self::$dbc->query("SELECT * from static::$table");
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;// @TODO: Learning from the find method, return all the matching records
+    }
 }
