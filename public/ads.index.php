@@ -16,6 +16,7 @@ $ads_test_arrays = [
 		'img' => 'grape_parade.png'
 	]
 ]
+
 ?>
 <!DOCTYPE html>
     <html>
