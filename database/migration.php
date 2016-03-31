@@ -1,6 +1,7 @@
 <?php
 
 //require db connection file!
+require_once('db_connect.php');
 
 //drop ad_table if exists
 $dropTable = <<<QUERY
@@ -11,7 +12,8 @@ $dbc->exec($dropTable);
 $createTable = <<<QUERY
 	CREATE TABLE ad_table(
 		ad_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-		description CHAR(400) NOT NULL,
+		discount_name CHAR(100) NOT NULL,
+		description TEXT NOT NULL,
 		percent_off INT NOT NULL,
 		start_date DATE NOT NULL,
 		end_date DATE NOT NULL,
