@@ -37,7 +37,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">One more link</a></li>
           </ul>
         </li>
         <li><a href="#">Events</a></li>
