@@ -19,7 +19,7 @@ $ads_array = [
 		'date_added' => '2015-03-31',
 		'business_name' => 'Grape Parade',
 		'business_address' => '69 Purple Pit Place',
-		'zip_code' => '11221',
+		'zip_code' => 11221,
 		'img' => 'grape_parade.png'
 	],
 	[
@@ -31,7 +31,7 @@ $ads_array = [
 		'date_added' => '2016-02-01',
 		'business_name' => 'Grape Parade',
 		'business_address' => '69 Purple Pit Place',
-		'zip_code' => '11221',
+		'zip_code' => 11221,
 		'img' => 'gregg_grapeson.jpg'
 	],
 	[
@@ -43,7 +43,7 @@ $ads_array = [
 		'date_added' => '2016-04-10',
 		'business_name' => 'Vineman''s Wine Bar & Regret Emporium',
 		'business_address' => '114 Grapeson Pit',
-		'zip_code' => '11221',
+		'zip_code' => 11221,
 		'img' => 'wine_chug.jpg'
 	],
 	[
@@ -55,7 +55,7 @@ $ads_array = [
 		'date_added' => '2016-01-01',
 		'business_name' => 'Mens'' Wearhouse' ,
 		'business_address' => '8 Grapewiggle Terrace',
-		'zip_code' => '11221',
+		'zip_code' => 11221,
 		'img' => 'grapeskin_suit.jpg'
 	]
 ]
