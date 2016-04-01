@@ -4,25 +4,29 @@
     require '../bootstrap.php';
    //conditional statement binding user input to :variables, then INSERTING them INTO ad_table
    if (
-	(Input::has('discount_nameSubmission'))
-	&& (Input::getString('discount_nameSubmission') != "")
-	&& (Input::has('descriptionSubmission'))
-	&& (Input::getNumber('descriptionSubmission') != "")
-	&& (Input::getString('percent_offSubmission'))
-	&& (Input::has('percent_offSubmission') != "")
-	&& (Input::getDate('start_dateSubmission'))
-	&& (Input::has('start_dateSubmission') != "")
-	&& (Input::getString('end_dateSubmission'))
-	&& (Input::has('end_dateSubmission') != "")
-	&& (Input::getString('business_nameSubmission'))
-	&& (Input::has('business_nameSubmission') != "")
-	&& (Input::getString('business_addressSubmission'))
-	&& (Input::has('business_addressSubmission') != "")
-	&& (Input::getString('zip_codeSubmission'))
-	&& (Input::has('zip_codeSubmission') != "")
-	&& (Input::getString('imgSubmission'))
-	&& (Input::has('imgSubmission') != "")
-	) {};
+   		(Input::has('discount_nameSubmission'))
+   		&& (Input::getString('discount_nameSubmission') != "")
+   		&& (Input::has('descriptionSubmission'))
+   		&& (Input::getNumber('descriptionSubmission') != "")
+   		&& (Input::getString('percent_offSubmission'))
+   		&& (Input::has('percent_offSubmission') != "")
+   		&& (Input::getDate('start_dateSubmission'))
+   		&& (Input::has('start_dateSubmission') != "")
+   		&& (Input::getString('end_dateSubmission'))
+   		&& (Input::has('end_dateSubmission') != "")
+   		&& (Input::getString('business_nameSubmission'))
+   		&& (Input::has('business_nameSubmission') != "")
+   		&& (Input::getString('business_addressSubmission'))
+   		&& (Input::has('business_addressSubmission') != "")
+   		&& (Input::getString('zip_codeSubmission'))
+   		&& (Input::has('zip_codeSubmission') != "")
+   		&& (Input::getString('imgSubmission'))
+   		&& (Input::has('imgSubmission') != "")
+	) {
+   	//NOTE: once Ad class is finished, use the Ad class's methods to INSERT user submissions into ad_table!
+   	//make sure to include YYYY-MM-DD timestamp!
+   	//redirect to thank-you page displaying submission with optional link to EDIT page
+   };
 ?>
 
 <!DOCTYPE html>
