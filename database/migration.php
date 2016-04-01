@@ -22,6 +22,7 @@ $createTable = <<<QUERY
 		business_address CHAR(200) NOT NULL,
 		zip_code INT NOT NULL,
 		img CHAR(200) NOT NULL,
+		category CHAR(20) NOT NULL,
 		PRIMARY KEY(ad_id)
 	)
 QUERY;
