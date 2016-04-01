@@ -5,6 +5,7 @@ require_once __DIR__ . '/BaseModel.php';
 class User extends Model
 {
     protected static $table = 'users';
+    
     protected function insert()
     {
         self::dbConnect();
