@@ -74,5 +74,16 @@ abstract class Model
         }
         return $instance;
     }
+
+    public function save()
+    {
+        if(!empty($this->attributes)) {
+
+            if(isset($this->id)) {
+                $this->update();
+            } else {
+                $this->insert();
+            }
+          }
 }
 ?>
