@@ -35,25 +35,45 @@ abstract class Model
 	    {
 	        $this->attributes[$name] = $value;
 	    }
-
-	protected abstract function insert();
-	{
-
-	}
-	protected abstract function update();
-	{
-
 	}
 
-	all()
-	find(id)
+	public static function all() // returns all the records
+    {
+        self::dbConnect();
+        $stmt = self::$dbc->query("SELECT * from static::$table");
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 	delete()
+
+	public static function find($id)
+    {
+        self::dbConnect();
+
+        $query = "SELECT * FROM users WHERE id= :id";
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+        
+         $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if (!empty($result)) {
+            $instance = new static($result);  // new Static = new User
+        }
+        return $instance;
+    }
+
 
 	public static function all()
     {
         self::dbConnect();
         $stmt = self::$dbc->query("SELECT * from static::$table");
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;// @TODO: Learning from the find method, return all the matching records
+        return $result;
     }
 }
+?>
