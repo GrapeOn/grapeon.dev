@@ -20,7 +20,8 @@ $ads_array = [
 		'business_name' => 'Grape Parade',
 		'business_address' => '69 Purple Pit Place',
 		'zip_code' => 11221,
-		'img' => 'grape_parade.png'
+		'img' => 'grape_parade.png',
+		'category' => "event"
 	],
 	[
 		'discount_name' => 'Free Grape Juggling Demo in the Park',
@@ -32,7 +33,8 @@ $ads_array = [
 		'business_name' => 'Grape Parade',
 		'business_address' => '69 Purple Pit Place',
 		'zip_code' => 11221,
-		'img' => 'gregg_grapeson.jpg'
+		'img' => 'gregg_grapeson.jpg',
+		'category' => "event"
 	],
 	[
 		'discount_name' => 'Drink 5 Bottles of Wine, Get Your Stomach Pumped for 75% Off!',
@@ -44,7 +46,8 @@ $ads_array = [
 		'business_name' => 'Vineman\'s Wine Bar & Regret Emporium',
 		'business_address' => '114 Grapeson Pit',
 		'zip_code' => 11221,
-		'img' => 'wine_chug.jpg'
+		'img' => 'wine_chug.jpg',
+		'category' => "event"
 	],
 	[
 		'discount_name' => '25% Off All Grapeskin Tuxedos',
@@ -56,12 +59,13 @@ $ads_array = [
 		'business_name' => 'Mens\' Wearhouse' ,
 		'business_address' => '8 Grapewiggle Terrace',
 		'zip_code' => 11221,
-		'img' => 'grapeskin_suit.jpg'
+		'img' => 'grapeskin_suit.jpg',
+		'category' => "event"
 	]
 ];
 
 //prepare statements inserting into ad_table table
-$query = "INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img) VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img)";
+$query = "INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img, category) VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img, :category)";
 
 $stmt = $dbc->prepare($query);
 
@@ -77,6 +81,7 @@ foreach ($ads_array as $ad) {
 	$stmt->bindValue(':business_address', $ad['business_address'], PDO::PARAM_STR);
 	$stmt->bindValue(':zip_code', $ad['zip_code'], PDO::PARAM_STR);
 	$stmt->bindValue(':img', $ad['img'], PDO::PARAM_STR);
+	$stmt->bindValue(':category', $ad['category'], PDO:: PARAM_STR);
 
 	$stmt->execute();
 }
