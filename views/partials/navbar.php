@@ -21,7 +21,6 @@
             <li><a href="#">Grapes</a></li>
             <li><a href="#">Raisins</a></li>
             <li><a href="#">Jelly</a></li>
-            <li><a href="#">Vinegar</a></li>
 <!--             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -31,9 +30,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drink <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Red Wines</a></li>
-            <li><a href="#">White Wines</a></li>
-            <li><a href="#">Grape Juice</a></li><!-- 
+            <li><a href="#">Wines</a></li>
+            <li><a href="#">Juice</a></li><!-- 
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
