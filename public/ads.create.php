@@ -2,34 +2,7 @@
 ?>
 <?php
     require '../bootstrap.php';
-    var_dump($_POST);
-   //conditional statement binding user input to :variables, then INSERTING them INTO ad_table
-   /*
-   if (
-   		(Input::has('discount_nameSubmission'))
-   		&& (Input::getString('discount_nameSubmission') != "")
-   		&& (Input::has('descriptionSubmission'))
-   		&& (Input::getNumber('descriptionSubmission') != "")
-   		&& (Input::getString('percent_offSubmission'))
-   		&& (Input::has('percent_offSubmission') != "")
-   		&& (Input::getDate('start_dateSubmission'))
-   		&& (Input::has('start_dateSubmission') != "")
-   		&& (Input::getString('end_dateSubmission'))
-   		&& (Input::has('end_dateSubmission') != "")
-   		&& (Input::getString('business_nameSubmission'))
-   		&& (Input::has('business_nameSubmission') != "")
-   		&& (Input::getString('business_addressSubmission'))
-   		&& (Input::has('business_addressSubmission') != "")
-   		&& (Input::getString('zip_codeSubmission'))
-   		&& (Input::has('zip_codeSubmission') != "")
-   		&& (Input::getString('imgSubmission'))
-   		&& (Input::has('imgSubmission') != "")
-	) {
-		};
-	*/
-   	//NOTE: once Ad class is finished, use the Ad class's methods to INSERT user submissions into ad_table!
-   	//make sure to include YYYY-MM-DD timestamp!
-   	//redirect to thank-you page displaying submission with optional link to EDIT page
+   //var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -51,41 +24,43 @@
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
 
-<form method="POST" action="ads.create.php">
+<form method="POST" action="ads.index.php">
 	<!--TO DO: Change the action to take them to their own new entry!-->
-	<label for="discount_nameSubmission">Discount name</label><br>
-	<input type="text" name="discount_nameSubmission" id="discount_nameSubmission">
+	<label for="discount_name">Discount name</label><br>
+	<input type="text" name="discount_name" id="discount_name">
 	<br><br>
-	<label for="descriptionSubmission">A quick description!</label><br>
-	<textarea rows="5" name="descriptionSubmission" id="descriptionSubmission"></textarea>
+	<label for="description">A quick description!</label><br>
+	<textarea rows="5" name="description" id="description"></textarea>
 	<br><br>
-	<label for="categorySubmission">Select a category!</label><br>
-	<input type="radio" name="categorySubmission" value="wine"> wine<br>
-	<input type="radio" name="categorySubmission" value="juice"> juice<br>
-	<input type="radio" name="categorySubmission" value="grapes"> grapes<br>
+	<!--radio buttons for category-->
+		<label for="category">Select a category!</label><br>
+		<input type="radio" name="category" value="wine"> wine<br>
+		<input type="radio" name="category" value="juice"> juice<br>
+		<input type="radio" name="category" value="grapes"> grapes<br>
 
-	<input type="radio" name="categorySubmission" value="raisins"> raisins<br>
-	<input type="radio" name="categorySubmission" value="jelly"> jelly<br>
-	<input type="radio" name="categorySubmission" value="events"> events<br>
+		<input type="radio" name="category" value="raisins"> raisins<br>
+		<input type="radio" name="category" value="jelly"> jelly<br>
+		<input type="radio" name="category" value="events"> events<br>
+	<!--END radio buttons for category-->
 	<br><br>
-	<label for="percent_offSubmission">Percent off</label>
-	<input type="text" name="percent_offSubmission" id="percent_offSubmission">%
+	<label for="percent_off">Percent off</label>
+	<input type="text" name="percent_off" id="percent_off">%
 	<br><br>
-	<label for="start_dateSubmission">Start date (YYYY-MM-DD)</label><br>
-	<input type="text" name="start_dateSubmission" id="start_dateSubmission">
+	<label for="start_date">Start date (YYYY-MM-DD)</label><br>
+	<input type="text" name="start_date" id="start_date">
 	<br><br>
-	<label for="end_dateSubmission">End date (YYYY-MM-DD)</label><br>
-	<input type="text" name="end_dateSubmission" id="end_dateSubmission">
+	<label for="end_date">End date (YYYY-MM-DD)</label><br>
+	<input type="text" name="end_date" id="end_date">
 	<br><br>
-	<!--NOTE: date_added will be added to the user submission through a PHP timestamp YYYY-MM-DD -->
-	<label for="business_nameSubmission">Business or location name</label><br>
-	<input type="text" name="business_nameSubmission" id="business_nameSubmission">
+	<!--NOTE: date_added will be added to the user  through a PHP timestamp YYYY-MM-DD -->
+	<label for="business_name">Business or location name</label><br>
+	<input type="text" name="business_name" id="business_name">
 	<br><br>
-	<label for="business_addressSubmission">Street address</label><br>
-	<input type="text" name="business_addressSubmission" id="business_addressSubmission">
+	<label for="business_address">Street address</label><br>
+	<input type="text" name="business_address" id="business_address">
 	<br><br>
-	<label for="zip_codeSubmission">Zip code</label><br>
-	<input type="text" name="zip_codeSubmission" id="zip_codeSubmission">
+	<label for="zip_code">Zip code</label><br>
+	<input type="text" name="zip_code" id="zip_code">
 	<br><br>
 	<h1>IMAGE UPLOADER GOES HERE!</h1>
 	<button type="submit">Grape Job!</button>
