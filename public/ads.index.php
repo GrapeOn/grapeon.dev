@@ -2,7 +2,7 @@
 
 <?php
 require '../bootstrap.php';
-//hard-coded array of ads?
+
 $ads_test_arrays = [
 	[
 		'discount_name' => 'Half Off All Grapes at Grape Parade!',
@@ -37,27 +37,28 @@ $ads_test_arrays = [
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Date Established</td>
-                <td>Area in Acres</td>
-                <td>Description</td>
-            </tr>
-        </thead>
+
         <tbody>
             <?php foreach ($ads_test_arrays as $ads_test_array) :?>
                 <tr>
-                    <td><?= $ads_test_array['discount_name'] ?></td>
+                    <td><?= $ads_test_array['discount_name']?></td>
+                    <br>
                     <td><?= $ads_test_array['description'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['percent_off'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['start_date'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['end_date'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['date_added'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['business_name'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['business_address'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['zip_code'] ?></td>
+                    <br>
                     <td><?= $ads_test_array['img'] ?></td>
                 </tr>
             <?php endforeach ?>
