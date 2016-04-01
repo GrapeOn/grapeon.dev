@@ -35,7 +35,6 @@ abstract class Model
 	    {
 	        $this->attributes[$name] = $value;
 	    }
-	}
 
 	public static function all() // returns all the records
     {
@@ -45,7 +44,16 @@ abstract class Model
         return $result;
     }
 
-	delete()
+	public static function delete($id)
+	{
+		self::dbConnect();
+		$query = "DELETE FROM users WHERE id= :id";
+		$stmt = self::$dbc->prepare($query);
+		$stmt->bindValue(':id', $id, PDO::PARAM_STR);
+        
+         $stmt->execute();
+
+	}
 
 	public static function find($id)
     {
@@ -65,15 +73,6 @@ abstract class Model
             $instance = new static($result);  // new Static = new User
         }
         return $instance;
-    }
-
-
-	public static function all()
-    {
-        self::dbConnect();
-        $stmt = self::$dbc->query("SELECT * from static::$table");
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
     }
 }
 ?>
