@@ -44,6 +44,7 @@ $ads_test_arrays = [
         $submission->business_name = Input::get('business_name');
         $submission->business_address = Input::get('business_address');
         $submission->zip_code = Input::get('zip_code');
+        $submission->category = Input::get('category');
         var_dump($submission);
         $submission->save();
         };
