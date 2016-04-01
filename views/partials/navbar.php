@@ -14,13 +14,13 @@
     <!--  Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">About <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="ads.index.php">About <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Food <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Grapes</a></li>
-            <li><a href="#">Raisins</a></li>
-            <li><a href="#">Jelly</a></li>
+            <li><a href="ads.index.php?keyword=grapes">Grapes</a></li>
+            <li><a href="ads.index.php?keyword=raisins">Raisins</a></li>
+            <li><a href="ads.index.php?keyword=jelly">Jelly</a></li>
 <!--             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -30,8 +30,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drink <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Wines</a></li>
-            <li><a href="#">Juice</a></li><!-- 
+            <li><a href="ads.index.php?keyword=wines">Wines</a></li>
+            <li><a href="ads.index.php?keyword=juice">Juice</a></li><!-- 
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -42,8 +42,8 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Create Ad</a></li>
-        <li><a href="#">LogIn</a></li>
+        <li><a href="ads.create.php">Create Ad</a></li>
+        <li><a href="auth.login.php">LogIn</a></li>
           <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
