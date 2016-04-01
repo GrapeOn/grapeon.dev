@@ -1,10 +1,12 @@
 <?php 
 
+// require_once '../bootstrap.php';
+require_once 'BaseModel.php';
+
 class Ad extends Model 
 {
 
-	public static function allAds()
-	protected static $table = $ad_table;
+	public static $table = 'ad_table';
 
 	public static function insert()
 	{
@@ -46,6 +48,5 @@ class Ad extends Model
     }
 
 	}
-}
 
 ?>

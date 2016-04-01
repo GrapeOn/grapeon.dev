@@ -44,7 +44,7 @@ class User extends Model
          $stmt->bindValue(':id', $id, PDO::PARAM_STR);
          $stmt->execute();
 
-         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
         $instance = null;
         if (!empty($result)) {
