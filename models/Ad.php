@@ -8,13 +8,13 @@ class Ad extends Model
 
 	public static $table = 'ad_table';
 
-	public static function insert()
+	public function insert()
 	{
 		self::dbConnect();
         $stmt = self::$dbc->prepare("INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img) 
             VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img)");
         
-        $stmt->bindValue(':discount_name', $this->discount_name, PDO::PARAM_STR);
+        //$stmt->bindValue(':discount_name', $this->discount_name, PDO::PARAM_STR);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
         $stmt->bindValue(':percent_off', $this->percent_off, PDO::PARAM_INT);
         $stmt->bindValue(':start_date', $this->start_date, PDO::PARAM_INT);
@@ -28,7 +28,7 @@ class Ad extends Model
         $stmt->execute();
 	}
 
-	public static function update()
+	public function update()
 	{
 		self::dbConnect();
         $stmt = self::$dbc->prepare("UPDATE ad_table SET first_name = :first_name, last_name = :last_name, email_address = :email_address, password = :password WHERE id = :id");
