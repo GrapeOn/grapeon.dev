@@ -2,7 +2,7 @@
 
 <?php
 require '../bootstrap.php';
-//hard-coded array of ads?
+
 $ads_test_arrays = [
 	[
 		'discount_name' => 'Half Off All Grapes at Grape Parade!',

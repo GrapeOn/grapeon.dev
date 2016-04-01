@@ -42,8 +42,8 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Create Ad</a></li>
         <li><a href="#">LogIn</a></li>
-        
           <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
