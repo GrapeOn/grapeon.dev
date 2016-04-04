@@ -2,7 +2,7 @@
 <?php
 abstract class Model
 {
-    protected static $dbc;
+    public static $dbc;
     protected static $table;
     protected $attributes = [];
     
@@ -11,7 +11,7 @@ abstract class Model
     	self::dbConnect();
     }
 
-	protected static function dbConnect()
+	public static function dbConnect()
 	    {
 	        if (!self::$dbc) {
 	            $dbc = new PDO('mysql:host=127.0.0.1;dbname=grapes_db', 'grape', 'grape');
