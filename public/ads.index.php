@@ -17,7 +17,7 @@ if (isset($_GET['page'])) {
 }
 $offset = ($page - 1) * 4;
 
-$keyword = "test";
+$keyword = "all";
 
 if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
@@ -56,10 +56,14 @@ var_dump($_POST);
         };
     //redirect to thank-you page displaying submission with optional link to EDIT page
 
-        $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
+        if ($keyword != "all") {
+            $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
+            $stmt->bindValue(':keyword', $keyword, PDO::PARAM_STR);
+        } else {
+            $stmt = $dbc->prepare("SELECT * FROM ad_table LIMIT :limit OFFSET :offset");
+        }
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-        $stmt->bindValue(':keyword', $keyword, PDO::PARAM_STR);
         $stmt->execute();
         $limited_ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -93,9 +97,7 @@ var_dump($_POST);
                                 <?= $ad['discount_name']?>
                             </a>
                         </h2>
-                        <br>
                     </td>
-                    <br>
                     <td>
                         <h3>
                             @ <?= $ad['business_name'] ?>
