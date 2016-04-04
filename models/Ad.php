@@ -27,6 +27,8 @@ class Ad extends Model
         $stmt->bindValue(':category', $this->category, PDO::PARAM_STR);
 
         $stmt->execute();
+        var_dump(self::$dbc->lastInsertId());
+        echo "DEBUG: the insert() function ran to completion." . PHP_EOL;
 	}
 
 	public function update()
@@ -46,8 +48,8 @@ class Ad extends Model
         $stmt->bindValue(':img', $this->img, PDO::PARAM_STR);
         $stmt->bindValue(':category', $this->category, PDO::PARAM_STR);
 
-
         $stmt->execute();
+        echo "DEBUG: the update() function ran to completion." . PHP_EOL;
     }
 
 	}
