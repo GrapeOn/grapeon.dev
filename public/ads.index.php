@@ -1,24 +1,29 @@
 <?php
 require '../bootstrap.php';
 
+$stmt = $dbc->prepare("SELECT * FROM ad_table");
+$stmt->execute();
+$ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$limit = 3;
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    if ($page < 1) {
+        $page = 1;
+    }
+} else {
+    $page = 1;
+}
+$offset = ($page - 1) * 4;
+
+$keyword = "test";
+
+if (isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword'];
+}
+
 var_dump($_POST);
-$ads_test_arrays = [
-	[
-		'discount_name' => 'Half Off All Grapes at Grape Parade!',
-		'description' => 'Swing by Grape Parade and sink your teeth into this truly purple deal! 50% off all grapes! (DISCLAIMER: DOES NOT INCLUDE GREEN GRAPES)',
-		'percent_off' => '50',
-		'start_date' => '2016-02-15',
-		'end_date' => '2016-04-01',
-		'date_added' => '2015-03-31',
-		'business_name' => 'Grape Parade',
-		'business_address' => '69 Purple Pit Place',
-		'zip_code' => '11221',
-		'img' => 'grape_parade.png'
-	]
-];
-
-
-   //conditional statement binding user input to :variables, then INSERTING them INTO ad_table
 
    if (
         (Input::get('discount_name', "") != "")
@@ -50,10 +55,13 @@ $ads_test_arrays = [
         $submission->save();
         };
     //redirect to thank-you page displaying submission with optional link to EDIT page
-        //create array of ads to foreach through in html/php
-        $stmt = $dbc->query("SELECT * FROM ad_table");
+
+        $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->bindValue(':keyword', $keyword, PDO::PARAM_STR);
         $stmt->execute();
-        $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $limited_ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -69,14 +77,14 @@ $ads_test_arrays = [
         <title>Browse Hot Dealz!</title>
         <meta name="description" content="GrapeOn provides local classifieds for grape products and grape events with food, drink, and vines">
     </head>
-<body>
+<body
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
-
+    <h2>Category: <?=$keyword?></h2>
         <tbody>
-            <?php foreach ($ads_array as $key => $ad) :?>
+            <?php foreach ($limited_ads_array as $key => $ad) :?>
                 <tr>
                     <td>
                         <h2>
@@ -102,5 +110,9 @@ $ads_test_arrays = [
                 </tr>
             <?php endforeach ?>
         </tbody>
+    <h2>Page <?= $page?>
+    <a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
+    <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
+    </h2>
 
 </body>

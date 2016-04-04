@@ -1,8 +1,10 @@
 <?php
 ?>
 <?php
-    require '../bootstrap.php';
-   //var_dump($_POST);
+require '../bootstrap.php';
+$stmt = $dbc->prepare("SELECT * FROM ad_table");
+$stmt->execute();
+$ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,6 @@
 	<?php require_once '../views/partials/footer.php'; ?>
 
 <form method="POST" action="ads.index.php">
-	<!--TO DO: Change the action to take them to their own new entry!-->
 	<label for="discount_name">Discount name</label><br>
 	<input type="text" name="discount_name" id="discount_name">
 	<br><br>
@@ -40,7 +41,7 @@
 
 		<input type="radio" name="category" value="raisins"> raisins<br>
 		<input type="radio" name="category" value="jelly"> jelly<br>
-		<input type="radio" name="category" value="events"> events<br>
+		<input type="radio" name="category" value="event"> event<br>
 	<!--END radio buttons for category-->
 	<br><br>
 	<label for="percent_off">Percent off</label>
@@ -52,7 +53,6 @@
 	<label for="end_date">End date (YYYY-MM-DD)</label><br>
 	<input type="text" name="end_date" id="end_date">
 	<br><br>
-	<!--NOTE: date_added will be added to the user  through a PHP timestamp YYYY-MM-DD -->
 	<label for="business_name">Business or location name</label><br>
 	<input type="text" name="business_name" id="business_name">
 	<br><br>
