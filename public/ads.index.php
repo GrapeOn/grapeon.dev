@@ -75,25 +75,19 @@ $ads_test_arrays = [
         <tbody>
             <?php foreach ($ads_test_arrays as $ads_test_array) :?>
                 <tr>
-                    <td><?= $ads_test_array['discount_name']?></td>
+                    <td>
+                        <?= $ads_test_array['discount_name']?>
+                    </td>
                     <br>
-                    <td><?= $ads_test_array['description'] ?></td>
                     <br>
-                    <td><?= $ads_test_array['percent_off'] ?></td>
+                    <td>
+                        <?= $ads_test_array['business_name'] ?>
+                    </td>
                     <br>
-                    <td><?= $ads_test_array['start_date'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['end_date'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['date_added'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['business_name'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['business_address'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['zip_code'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['img'] ?></td>
+
+                    <td>
+                        <img src="/img/<?= $ads_test_array['img'] ?>">
+                    </td>
                 </tr>
             <?php endforeach ?>
         </tbody>
