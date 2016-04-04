@@ -50,7 +50,10 @@ $ads_test_arrays = [
         $submission->save();
         };
     //redirect to thank-you page displaying submission with optional link to EDIT page
-        //echo $submission->all();
+        //create array of ads to foreach through in html/php
+        $stmt = $dbc->query("SELECT * FROM ad_table");
+        $stmt->execute();
+        $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -73,27 +76,29 @@ $ads_test_arrays = [
 	<?php require_once '../views/partials/footer.php'; ?>
 
         <tbody>
-            <?php foreach ($ads_test_arrays as $ads_test_array) :?>
+            <?php foreach ($ads_array as $key => $ad) :?>
                 <tr>
-                    <td><?= $ads_test_array['discount_name']?></td>
+                    <td>
+                        <h2>
+                            <a href="ads.show.php?ad_id=<?= $ad['ad_id']?>"
+                            >
+                                <?= $ad['discount_name']?>
+                            </a>
+                        </h2>
+                        <br>
+                    </td>
                     <br>
-                    <td><?= $ads_test_array['description'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['percent_off'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['start_date'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['end_date'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['date_added'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['business_name'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['business_address'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['zip_code'] ?></td>
-                    <br>
-                    <td><?= $ads_test_array['img'] ?></td>
+                    <td>
+                        <h3>
+                            @ <?= $ad['business_name'] ?>
+                        </h3>
+                        <br>
+                    </td>
+                    <td>
+                        <img class="adsIndexPhotos" src="/img/<?= $ad['img'] ?>">
+                        <br>
+                        <br>
+                    </td>
                 </tr>
             <?php endforeach ?>
         </tbody>
