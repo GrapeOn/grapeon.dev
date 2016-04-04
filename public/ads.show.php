@@ -37,26 +37,29 @@ var_dump($grape);
 	<h2>
 		Take advantage of <?= $grape['discount_name']?>
 	</h2>
-	<h3>
+	<!-- <h3>
 		This discount is <?= $grape['percent_off']?> % off!
-	</h3>
+	</h3> -->
 
 	<h4 id="description">
 		<?= $grape['description'] ?>
 	</h4>
 	<h4> 
-		To grape this deal, come on over to <?= $grape['business_name'] ?> located at <?= $grape['business_address'] . ', ' . $grape['zip_code']?>
+		Grape this <?= $grape['business_name'] ?> deal at <?= $grape['business_address'] . ', ' . $grape['zip_code']?>
 	
 	<h5>
 		Offer ends <?= $grape['end_date'] ?>
 	</h5>
+	<p>
+		<img src="/img/<?= $grape['img'] ?>"> 
+	</p>
 	<br>
-	<a href="?ad_id=<?= $id - 1 ?>">Previous Discount</a>
-	<a href="?ad_id=<?= $id + 1 ?>">Next Discount</a>
+		<a href="?ad_id=<?= $id - 1 ?>">Previous Discount</a>
 	<br>
-	<a href="">Back to Listings</a>
+		<a href="?ad_id=<?= $id + 1 ?>">Next Discount</a>
+	<br>
+		<a href="">Back to Listings</a>
 	<br>
 
 </body>
 </html>
-?>
