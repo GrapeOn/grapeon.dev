@@ -39,16 +39,20 @@ $ads_test_arrays = [
         $submission->discount_name = Input::get('discount_name');
         $submission->description = Input::get('description');
         $submission->percent_off = Input::get('percent_off');
+        $submission->date_added = date('Y-m-d');
         $submission->start_date = Input::get('start_date');
         $submission->end_date = Input::get('end_date');
         $submission->business_name = Input::get('business_name');
         $submission->business_address = Input::get('business_address');
         $submission->zip_code = Input::get('zip_code');
         $submission->category = Input::get('category');
+        $submission->img = 'placeholderGrape.png';
         var_dump($submission);
         $submission->save();
         };
-
+        //this is to get the whole table on the page for inspection
+        $query = "SELECT * FROM ad_table";
+        $submission::$dbc->exec($query);
     //NOTE: once Ad class is finished, use the Ad class's methods to INSERT user submissions into ad_table!
     //make sure to include YYYY-MM-DD timestamp!
     //redirect to thank-you page displaying submission with optional link to EDIT page
