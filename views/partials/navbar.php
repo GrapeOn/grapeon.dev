@@ -38,7 +38,7 @@
             <li><a href="#">One more link</a></li> -->
           </ul>
         </li>
-        <li><a href="#">Events</a></li>
+        <li><a href="ads.index.php?keyword=event">Events</a></li>
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
