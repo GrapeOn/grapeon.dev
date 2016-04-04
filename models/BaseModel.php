@@ -6,9 +6,10 @@ abstract class Model
     protected static $table;
     protected $attributes = [];
     
-    public function __construct()
+    public function __construct($attributes = [])
     {
     	self::dbConnect();
+        $this->attributes = $attributes;
     }
 
 	public static function dbConnect()
@@ -16,6 +17,7 @@ abstract class Model
 	        if (!self::$dbc) {
 	            $dbc = new PDO('mysql:host=127.0.0.1;dbname=grapes_db', 'grape', 'grape');
 	            self::$dbc = $dbc;
+                $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        }
 	    }
 
@@ -79,12 +81,14 @@ abstract class Model
     {
         if(!empty($this->attributes)) {
 
-            if(isset($this->id)) {
+            if(isset($this->attributes['id'])) {
                 $this->update();
             } else {
                 $this->insert();
+                echo "DEBUG: the save() function ran to completion." . PHP_EOL;
             }
           }
-}
+          
+      }
 }
 ?>

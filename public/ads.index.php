@@ -1,7 +1,6 @@
-
-
 <?php
 require '../bootstrap.php';
+
 var_dump($_POST);
 $ads_test_arrays = [
 	[
@@ -50,15 +49,8 @@ $ads_test_arrays = [
         var_dump($submission);
         $submission->save();
         };
-        //this is to get the whole table on the page for inspection
-        $query = "SELECT * FROM ad_table";
-        $submission::$dbc->exec($query);
-    //NOTE: once Ad class is finished, use the Ad class's methods to INSERT user submissions into ad_table!
-    //make sure to include YYYY-MM-DD timestamp!
     //redirect to thank-you page displaying submission with optional link to EDIT page
-
-
-
+        //echo $submission->all();
 
 ?>
 <!DOCTYPE html>
