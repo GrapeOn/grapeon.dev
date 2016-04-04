@@ -61,7 +61,60 @@ $ads_array = [
 		'zip_code' => 11221,
 		'img' => 'grapeskin_suit.jpg',
 		'category' => "event"
+	],
+		[
+		'discount_name' => '50% Off Tickets 2 The Raisin Rager',
+		'description' => 'We\'ll be RAISIN the roof here. Come dance til you sweat yourself dry & shrivel up (but don\'t die!).',
+		'percent_off' => 50,
+		'start_date' => '2016-09-01',
+		'end_date' => '2016-10-01',
+		'date_added' => '2016-04-04',
+		'business_name' => 'Dry Grape Discoteque and Grindhouse' ,
+		'business_address' => '9 Heck Hole Plaza',
+		'zip_code' => 78212,
+		'img' => 'raisin_rager.jpg',
+		'category' => "event"
+	],
+	[
+		'discount_name' => 'Free Juice Binge',
+		'description' => 'Grape Juice guzzle. Three days str8. Free of charge.',
+		'percent_off' => 100,
+		'start_date' => '2016-10-01',
+		'end_date' => '2016-10-03',
+		'date_added' => '2016-04-04',
+		'business_name' => 'Purple Lips Chughouse' ,
+		'business_address' => '198 Juice Jump Lane',
+		'zip_code' => 78212,
+		'img' => 'juice_binge.jpg',
+		'category' => "juice"
+	],
+	[
+		'discount_name' => '10% Off Jelly Massage',
+		'description' => 'Long day at the office? Let our jelly specialists marinate your tense back & shoulders in our artisinal jelly blends.',
+		'percent_off' => 100,
+		'start_date' => '2016-01-01',
+		'end_date' => '2016-10-03',
+		'date_added' => '2016-04-04',
+		'business_name' => 'Smooth Jelly Massage Palace' ,
+		'business_address' => '3 Jamwiggle Terrace',
+		'zip_code' => 78212,
+		'img' => 'jelly_massage.png',
+		'category' => 'jelly'
+	],
+	[
+		'discount_name' => 'Grape & Go Seek',
+		'description' => 'Head out to the grape vineyard for a fun game of Grape & Go Seek with Phil \'Green Grapes\' McGovern, World G&GS (Grape & Go Seek) Champion.',
+		'percent_off' => 100,
+		'start_date' => '2016-06-01',
+		'end_date' => '2016-06-03',
+		'date_added' => '2016-04-04',
+		'business_name' => 'Bexar County Vineyards' ,
+		'business_address' => '90 Vineyards Highway',
+		'zip_code' => 78212,
+		'img' => 'grape_and_seek.jpg',
+		'category' => 'event'
 	]
+
 ];
 
 //prepare statements inserting into ad_table table
