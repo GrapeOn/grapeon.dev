@@ -50,7 +50,11 @@
           echo $_SESSION['LOGGED_IN_USER'];
         } ?></a></li>
         <li><a href="ads.create.php">Create Ad</a></li>
-        <li><a href="auth.login.php">LogIn</a></li>
+        <?php if (!isset($_SESSION['LOGGED_IN_USER'])) { ?>
+          <li><a href="auth.login.php">Login</a></li>
+        <?php } else { ?>
+          <li><a href="index.php">Logout</a></li>
+          <?php } ?>
           <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">

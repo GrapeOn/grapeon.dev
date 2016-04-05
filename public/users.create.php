@@ -4,6 +4,12 @@ GOALS:
 user input gets pushed into users_table
 */
 require '../bootstrap.php';
+
+//this redirects logged in users away from user creation
+if (isset($_SESSION['LOGGED_IN_USER'])) {
+	header("Location: http://grapeon.dev/users.show.php");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,36 +32,65 @@ require '../bootstrap.php';
 	<?php require_once '../views/partials/footer.php'; ?>
 
 <form method="POST" action="users.show.php">
-	<label for="first_name">First Name</label><br>
-	<input type="text" name="first_name" id="first_name">
-	<br><br>
-	<label for="last_name">Last Name</label><br>
-	<input type="text" name="last_name" id="last_name">
-	<br><br>
-	<label for="username">Username</label><br>
-	<input type="text" name="username" id="username">
-	<br><br>
-	<label for="password">Password</label><br>
-	<input type="password" name="password" id="password">
-	<br><br>
-	<label for="confirm_password">Confirm Password</label><br>
-	<input type="password" name="confirm_password" id="confirm_password">
-	<br><br>
-	<label for="email_address">Email address</label><br>
-	<input type="text" name="email_address" id="email_address">
-	<br><br>
-
-	<!--radio buttons for avatar-->
-		<label for="avatar">Select an avatar!</label><br>
-		<input type="radio" name="avatar" value="av1.jpg"> av1.jpg<br>
-		<input type="radio" name="avatar" value="av2.jpg"> av2.jpg<br>
-		<input type="radio" name="avatar" value="av3.jpg"> av3.jpg<br>
-
-		<input type="radio" name="avatar" value="av4.jpg"> av4.jpg<br>
-		<input type="radio" name="avatar" value="av5.jpg"> av5.jpg<br>
-		<input type="radio" name="avatar" value="av6.jpg"> av6.jpg<br>
+	<table>
+		<tr>
+			<td>
+				<label for="first_name">First Name</label><br>
+				<input type="text" name="first_name" id="first_name">
+			</td>
+			<td>
+				<label for="last_name">Last Name</label><br>
+				<input type="text" name="last_name" id="last_name">
+			</td>
+			<td>
+				<label for="email_address">Email address</label><br>
+				<input type="text" name="email_address" id="email_address">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="username">Username</label><br>
+				<input type="text" name="username" id="username">
+			</td>
+			<td>
+				<label for="password">Password</label><br>
+				<input type="password" name="password" id="password">
+			</td>
+			<td>
+					<label for="confirm_password">Confirm Password</label><br>
+					<input type="password" name="confirm_password" id="confirm_password">
+			</td>
+		</tr>
+	</table>
+	<!--radio buttons for avatar property-->
+	<label for="avatar">Select an avatar!</label><br>
+	<table>
+		<tr>
+			<td>
+				<input type="radio" name="avatar" value="av1.png"> <img class="avatar" src="/img/av1.png">
+			</td>
+			<td>
+				<input type="radio" name="avatar" value="av2.png"> <img class="avatar" src="/img/av2.png">
+			</td>
+			<td>
+				<input type="radio" name="avatar" value="av3.png"> <img class="avatar" src="/img/av3.png">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="radio" name="avatar" value="av4.png"> <img class="avatar" src="/img/av4.png">
+			</td>
+			<td>
+				<input type="radio" name="avatar" value="av5.png"> <img class="avatar" src="/img/av5.png">
+			</td>
+			<td>
+				<input type="radio" name="avatar" value="av6.png"> <img class="avatar" src="/img/av6.png">
+			</td>
+		</tr>
+	</table>
 	<!--END radio buttons for avatar-->
-		<button type="submit">ONE OF US!</button>
+	<br>
+	<button type="submit">ONE OF US!</button>
 </form>
 
 </body>
