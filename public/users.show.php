@@ -1,7 +1,7 @@
 <?php
 
 require_once '../bootstrap.php';
-var_dump($_POST);
+var_dump($_SESSION);
 
 if (
 		(Input::get('first_name', "") != "")
@@ -16,7 +16,7 @@ if (
 	$newUser->first_name = Input::get('first_name');
 	$newUser->last_name = Input::get('last_name');
 	$newUser->username = Input::get('username');
-	$newUser->password = Input::get('password');
+	$newUser->password = password_hash(Input::get('password'), PASSWORD_DEFAULT);
 	$newUser->email_address = Input::get('email_address');
 	$newUser->avatar = Input::get('avatar');
 	$newUser->join_date = date('Y-m-d');
@@ -25,6 +25,7 @@ if (
 
 	$newUser->save();
 }
+
 ?>
 
 <DOCTYPE! HTML>
@@ -37,7 +38,7 @@ if (
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
-        <title>Browse Hot Dealz!</title>
+        <title>Your Profile</title>
         <meta name="description" content="GrapeOn provides local classifieds for grape products and grape events with food, drink, and vines">
 </head>
 <body>
@@ -45,7 +46,9 @@ if (
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
 
-	<h1>Your New Profile</h1>
+	<h1>Your Profile</h1>
+
+	<h2>Welcome, <?php echo $_SESSION['LOGGED_IN_USER'] ?></h2>
 
 </body>
 </html>
