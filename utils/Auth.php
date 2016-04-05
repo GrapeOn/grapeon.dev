@@ -1,17 +1,20 @@
 <?php
 
 class Auth {
-	 public static $password = 'grape';
-	 public static $username = 'grape';
 
 	 // Auth::attempt($username, $password) 
 
 	 public static function attempt($username, $password) {
-	 	
-	 	if (password_verify ($password, self::$password) && self::$username == $username){ 
+	 	$user = User::findByUsername($username);
+	 	var_dump($user);
+	 	if (is_null($user)) {
+	 		return false;	
+	 	}
+	 	if (password_verify ($password, $user->password)){ 
 	 		$_SESSION['LOGGED_IN_USER'] = $username;
 			return true;
-	 	}	return false;
+	 	}	
+	 	return false;
 	  }
 
 	 public static function check() {
@@ -21,7 +24,6 @@ class Auth {
 			return false;
 		}
 	 } 
-
 
 	 //will return the username of the currently logged in user.
 	 public function user()

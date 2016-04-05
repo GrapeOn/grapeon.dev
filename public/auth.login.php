@@ -1,9 +1,10 @@
 <?php
+	require_once '../bootstrap.php';
+
+	
 
 // starts a session or finds a session
 // allows us to use a $_SESSION superglobal
-
-require '../bootstrap.php';
 
 function pageController()
 
@@ -13,12 +14,12 @@ function pageController()
 		$password = Input::has('password') ? Input::get('password'): '';
 
 		$result = Auth::attempt($username, $password);
-
+		var_dump($result);
 		if($result) {
-			header('Location: authorized.php');
+			header('Location: ads.index.php');
 			die();
 		} else if ($username != '' && $password != '') {
-	echo ("Password was incorrect");
+	echo ("Password was incorrect. Try again :)");
 	}
 	 return array (
 		'username' => $username,
