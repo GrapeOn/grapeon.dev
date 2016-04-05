@@ -139,3 +139,81 @@ foreach ($ads_array as $ad) {
 	$stmt->execute();
 }
 
+
+
+
+//create user dummy data!
+
+
+
+$truncator = <<<QUERY
+TRUNCATE user_table;
+QUERY;
+$dbc->exec($truncator);
+
+$users_array = [
+	[
+		'first_name' => 'Margot',
+		'last_name' => 'McMahon',
+		'username' => 'margoober',
+		'password' => 'closetome',
+		'email_address' => 'amcmahon@nes.ru',
+		'avatar' => 'av1.jpg',
+		'join_date' => '2016-04-05'
+	],
+	[
+		'first_name' => 'Gaston',
+		'last_name' => 'Lenotre',
+		'username' => 'jellydaddy420',
+		'password' => 'iloveENERGYDRINKS',
+		'email_address' => 'gaston@hotmail.com',
+		'avatar' => 'av2.jpg',
+		'join_date' => '2016-04-05'
+	],
+	[
+		'first_name' => 'Vines',
+		'last_name' => 'McShirt',
+		'username' => 'grapelover1',
+		'password' => 'bobo',
+		'email_address' => 'snails@gmail.com',
+		'avatar' => 'av4.jpg',
+		'join_date' => '2016-04-05'
+	],
+	[
+		'first_name' => 'Greeg',
+		'last_name' => 'Grapeson',
+		'username' => 'grapelover2',
+		'password' => 'bobo',
+		'email_address' => 'snails2@gmail.com',
+		'avatar' => 'av3.jpg',
+		'join_date' => '2016-04-01'
+	]
+
+];
+
+//prepare statements inserting into ad_table table
+$query = "INSERT INTO user_table (first_name, last_name, username, password, email_address, avatar, join_date) VALUES (:first_name, :last_name, :username, :password, :email_address, :avatar, :join_date)";
+
+$stmt = $dbc->prepare($query);
+
+//now bind them!
+foreach ($users_array as $user) {
+	$stmt->bindValue(':first_name', $user['first_name'], PDO::PARAM_STR);
+	$stmt->bindValue(':last_name', $user['last_name'], PDO::PARAM_STR);
+	$stmt->bindValue(':username', $user['username'], PDO::PARAM_INT);
+	$stmt->bindValue(':password', $user['password'], PDO::PARAM_STR);
+	$stmt->bindValue(':email_address', $user['email_address'], PDO::PARAM_STR);
+	$stmt->bindValue(':avatar', $user['avatar'], PDO::PARAM_STR);
+	$stmt->bindValue(':join_date', $user['join_date'], PDO::PARAM_STR);
+
+	$stmt->execute();
+}
+
+
+
+
+
+
+
+
+
