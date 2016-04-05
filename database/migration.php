@@ -28,3 +28,25 @@ $createTable = <<<QUERY
 QUERY;
 
 $dbc->exec($createTable);
+
+//create user_table
+$dropUserTable = <<<QUERY
+	DROP TABLE IF EXISTS user_table
+QUERY;
+
+$dbc->exec($dropUserTable);
+
+$createUserTable = <<<QUERY
+	CREATE TABLE user_table(
+		user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+		first_name CHAR(70) NOT NULL,
+		last_name CHAR(70) NOT NULL,
+		username CHAR(70) NOT NULL,
+		password CHAR(70) NOT NULL,
+		email_address CHAR(70) NOT NULL,
+		avatar CHAR(70) NOT NULL,
+		join_date DATE NOT NULL,
+		PRIMARY KEY(user_id)
+	)
+QUERY;
+$dbc->exec($createUserTable);
