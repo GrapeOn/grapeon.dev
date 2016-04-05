@@ -108,6 +108,7 @@ if (isset($_GET['keyword'])) {
                         <br>
                     </td>
                 </tr>
+                <hr>
             <?php endforeach ?>
         </tbody>
     <h2>Page <?= $page?>

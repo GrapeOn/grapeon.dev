@@ -36,7 +36,10 @@ require '../bootstrap.php';
 	<input type="text" name="username" id="username">
 	<br><br>
 	<label for="password">Password</label><br>
-	<input type="text" name="password" id="password">
+	<input type="password" name="password" id="password">
+	<br><br>
+	<label for="confirm_password">Confirm Password</label><br>
+	<input type="password" name="confirm_password" id="confirm_password">
 	<br><br>
 	<label for="email_address">Email address</label><br>
 	<input type="text" name="email_address" id="email_address">

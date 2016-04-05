@@ -1,4 +1,6 @@
-
+<?php
+  require_once '../bootstrap.php';
+?>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -42,6 +44,7 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="users.show.php">Hi, <?php echo $_SESSION['LOGGED_IN_USER']?></a></li>
         <li><a href="ads.create.php">Create Ad</a></li>
         <li><a href="auth.login.php">LogIn</a></li>
           <form class="navbar-form navbar-right" role="search">
