@@ -3,9 +3,6 @@
 	session_start();
 	Auth::logout();
 
-	$stmt = $dbc->prepare("SELECT * FROM user_table");
-	$stmt->execute();
-	$ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
