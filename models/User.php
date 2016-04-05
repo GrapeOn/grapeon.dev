@@ -57,6 +57,23 @@ class User extends Model
         return $instance;
     }
 
+    public static function findByUserName($username)
+    {
+        self::dbConnect();
+        $query = "SELECT * FROM user_table WHERE username= :username";
+        $stmt = self::$dbc->prepare($query);
+         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+         $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); // every result from a db returns an array
+        
+        $instance = null;
+        if (!empty($result)) {
+            $instance = new static($result); 
+        }
+        return $instance;
+    }
+
     public static function all()
     {
         self::dbConnect();

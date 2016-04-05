@@ -23,8 +23,6 @@ if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
 }
 
-var_dump($_POST);
-
    if (
         (Input::get('discount_name', "") != "")
         && (Input::get('description', "") != "")
