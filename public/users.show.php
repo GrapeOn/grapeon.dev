@@ -3,6 +3,12 @@
 require_once '../bootstrap.php';
 var_dump($_SESSION);
 
+//redirect to login page if a session is not active
+if (!isset($_SESSION['LOGGED_IN_USER'])) {
+		header("Location: http://grapeon.dev/auth.login.php");
+		exit();
+	}
+
 if (
 		(Input::get('first_name', "") != "")
         && (Input::get('last_name', "") != "")
@@ -46,9 +52,7 @@ if (
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
 
-	<h1>Your Profile</h1>
-
-	<h2>Welcome, <?php echo $_SESSION['LOGGED_IN_USER'] ?></h2>
+	
 
 </body>
 </html>
