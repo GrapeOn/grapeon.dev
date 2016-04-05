@@ -60,7 +60,7 @@ class User extends Model
     public static function findByUserName($username)
     {
         self::dbConnect();
-        $query = "SELECT * FROM users WHERE username= :username";
+        $query = "SELECT * FROM user_table WHERE username= :username";
         $stmt = self::$dbc->prepare($query);
          $stmt->bindValue(':username', $username, PDO::PARAM_STR);
          $stmt->execute();

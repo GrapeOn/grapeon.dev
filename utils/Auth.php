@@ -6,7 +6,6 @@ class Auth {
 
 	 public static function attempt($username, $password) {
 	 	$user = User::findByUsername($username);
-	 	var_dump($user);
 	 	if (is_null($user)) {
 	 		return false;	
 	 	}
