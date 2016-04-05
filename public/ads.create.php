@@ -2,6 +2,13 @@
 ?>
 <?php
 require '../bootstrap.php';
+
+//redirect if not logged in!
+if (!isset($_SESSION['LOGGED_IN_USER'])) {
+		header("Location: http://grapeon.dev/auth.login.php");
+		exit();
+	}
+
 $stmt = $dbc->prepare("SELECT * FROM ad_table");
 $stmt->execute();
 $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
