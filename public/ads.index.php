@@ -76,6 +76,7 @@ if (isset($_GET['keyword'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" href="/css/main.css">
         <title>Browse Hot Dealz!</title>
         <meta name="description" content="GrapeOn provides local classifieds for grape products and grape events with food, drink, and vines">
     </head>
@@ -103,7 +104,7 @@ if (isset($_GET['keyword'])) {
                         <br>
                     </td>
                     <td>
-                        <img class="adsIndexPhotos" src="/img/<?= $ad['img'] ?>">
+                        <img class="adsIndexPhotos ad_image" src="/img/<?= $ad['img'] ?>">
                         <br>
                         <br>
                     </td>
