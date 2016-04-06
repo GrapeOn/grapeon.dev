@@ -158,7 +158,7 @@ $users_array = [
 		'username' => 'margoober',
 		'password' => password_hash('closetome', PASSWORD_DEFAULT),
 		'email_address' => 'amcmahon@nes.ru',
-		'avatar' => 'av1.jpg',
+		'avatar' => 'av1.png',
 		'join_date' => '2016-04-05'
 	],
 	[
@@ -167,7 +167,7 @@ $users_array = [
 		'username' => 'jellydaddy420',
 		'password' => password_hash('iloveENERGYDRINKS', PASSWORD_DEFAULT),
 		'email_address' => 'gaston@hotmail.com',
-		'avatar' => 'av2.jpg',
+		'avatar' => 'av2.png',
 		'join_date' => '2016-04-05'
 	],
 	[
@@ -176,7 +176,7 @@ $users_array = [
 		'username' => 'grapelover1',
 		'password' => password_hash('bobo', PASSWORD_DEFAULT),
 		'email_address' => 'snails@gmail.com',
-		'avatar' => 'av4.jpg',
+		'avatar' => 'av4.png',
 		'join_date' => '2016-04-05'
 	],
 	[
@@ -185,7 +185,7 @@ $users_array = [
 		'username' => 'grapelover2',
 		'password' => password_hash('bobo', PASSWORD_DEFAULT),
 		'email_address' => 'snails2@gmail.com',
-		'avatar' => 'av3.jpg',
+		'avatar' => 'av3.png',
 		'join_date' => '2016-04-01'
 	]
 
