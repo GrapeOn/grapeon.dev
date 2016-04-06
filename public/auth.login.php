@@ -1,7 +1,6 @@
 <?php
 require_once '../bootstrap.php';
 
-// starts a session or finds a session
 // allows us to use a $_SESSION superglobal
 
 function pageController()
