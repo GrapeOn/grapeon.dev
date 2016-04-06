@@ -2,6 +2,11 @@
 
 require_once '../bootstrap.php';
 
+var_dump($_FILES);
+require_once '../utils/Uploader.php';
+
+Uploader::uploadFunction();
+
 if (
         (Input::get('discount_name', "") != "")
         && (Input::get('description', "") != "")
@@ -28,7 +33,7 @@ if (
         $submission->zip_code = Input::get('zip_code');
         $submission->category = Input::get('category');
         $submission->img = 'placeholderGrape.png';
-        var_dump($submission);
+        //var_dump($submission);
         $submission->save();
         };
     //redirect to thank-you page displaying submission with optional link to EDIT page
@@ -45,7 +50,7 @@ if (isset($_GET['ad_id'])) {
 	$grape = $stmt->fetch(PDO::FETCH_ASSOC);
 
 }
-var_dump($grape);
+//var_dump($grape);
 ?>
 
 <DOCTYPE! HTML>
