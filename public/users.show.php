@@ -68,12 +68,23 @@ var_dump($currentProfile);
 				<img src="/img/<?= $currentProfile['avatar'] ?>">
 			</td>
 			<td>
+				<h1><?= $currentProfile['username'] ?></h1>
 			</td>
 		</tr>
 		<tr>
 			<td>
+				<h3><?= $currentProfile['first_name'] ?></h3>
 			</td>
 			<td>
+				<h3><?= $currentProfile['last_name'] ?></h3>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h3><?= $currentProfile['email_address'] ?></h3>
+			</td>
+			<td>
+				<h3>You're User Number <?= $currentProfile['user_id'] ?>!</h3>
 			</td>
 		</tr>
 	</table>
