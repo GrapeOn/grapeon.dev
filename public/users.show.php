@@ -32,6 +32,16 @@ if (
 	$newUser->save();
 }
 
+
+//create select statement that SELECTs * FROM user_table WHERE username = $_SESSION['LOGGED_IN_USER'];
+	
+	$currentUser = $_SESSION['LOGGED_IN_USER'];
+	
+	$stmt = $dbc->query("SELECT * FROM user_table WHERE username = '$currentUser'");
+
+	$currentProfile = $stmt->fetch(PDO::FETCH_ASSOC);
+
+var_dump($currentProfile);
 ?>
 
 <DOCTYPE! HTML>
@@ -51,6 +61,22 @@ if (
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
+
+	<table>
+		<tr>
+			<td>
+				<img src="/img/<?= $currentProfile['avatar'] ?>">
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+	</table>
 
 	
 
