@@ -23,36 +23,7 @@ if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
 }
 
-   if (
-        (Input::get('discount_name', "") != "")
-        && (Input::get('description', "") != "")
-        && (Input::get('percent_off', "") != "")
-        && (Input::get('start_date', "") != "")
-        && (Input::get('end_date', "") != "")
-        && (Input::get('business_name', "") != "")
-        && (Input::get('business_address', "") != "")
-        && (Input::get('zip_code', "") != "")
-        //&& (Input::getString('img'))
-        //&& (Input::has('img') != "")
-        && (Input::get('category', "") != "")
-    ) {
-    echo "the POST supervariable has everything it needs! the user submitted everything just fine." . PHP_EOL;
-        $submission = new Ad();
-        $submission->discount_name = Input::get('discount_name');
-        $submission->description = Input::get('description');
-        $submission->percent_off = Input::get('percent_off');
-        $submission->date_added = date('Y-m-d');
-        $submission->start_date = Input::get('start_date');
-        $submission->end_date = Input::get('end_date');
-        $submission->business_name = Input::get('business_name');
-        $submission->business_address = Input::get('business_address');
-        $submission->zip_code = Input::get('zip_code');
-        $submission->category = Input::get('category');
-        $submission->img = 'placeholderGrape.png';
-        var_dump($submission);
-        $submission->save();
-        };
-    //redirect to thank-you page displaying submission with optional link to EDIT page
+   
 
         if ($keyword != "all") {
             $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
@@ -84,7 +55,6 @@ if (isset($_GET['keyword'])) {
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
     <h2>Category: <?=$keyword?></h2>
         <tbody>
             <?php foreach ($limited_ads_array as $key => $ad) :?>
@@ -114,7 +84,9 @@ if (isset($_GET['keyword'])) {
         </tbody>
     <h2>Page <?= $page?>
     <a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
-    <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
+    <a sclass="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
     </h2>
+    <?php require_once '../views/partials/footer.php'; ?>
+
 
 </body>
