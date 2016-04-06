@@ -31,9 +31,8 @@ $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
 
-<form method="POST" action="ads.index.php">
+<form method="POST" action="ads.show.php?ad_id=1">
 	<label for="discount_name">Discount name</label><br>
 	<input type="text" name="discount_name" id="discount_name">
 	<br><br>
@@ -69,9 +68,13 @@ $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<label for="zip_code">Zip code</label><br>
 	<input type="text" name="zip_code" id="zip_code">
 	<br><br>
-	<h1>IMAGE UPLOADER GOES HERE!</h1>
+	<label for="img">Upload an image!</label>
+	<input type="file" name="img" id="img">
+    <br>
 	<button type="submit">Grape Job!</button>
 </form>
+<?php require_once '../views/partials/footer.php'; ?>
+
 
 </body>
 </html>
