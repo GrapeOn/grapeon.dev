@@ -1,6 +1,9 @@
 <?php
 //bootstrap.php will contain ALL requires; then we will require bootstrap.php at the top of all relevant php files
-session_start();
+if (session_status() != PHP_SESSION_ACTIVE) 
+	{ 
+		session_start();
+	}
 require_once 'database/db_connect.php';
 require_once('utils/Input.php');
 require_once('utils/Auth.php');

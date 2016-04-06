@@ -1,5 +1,5 @@
 <?php
-	require_once '../bootstrap.php';
+require_once '../bootstrap.php';
 
 // starts a session or finds a session
 // allows us to use a $_SESSION superglobal
@@ -7,7 +7,6 @@
 function pageController()
 
 	{
-	session_start();	
 		$username = Input::has('username') ? Input::get('username') : '';
 		$password = Input::has('password') ? Input::get('password'): '';
 
