@@ -44,7 +44,7 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="ads.create.php"><?php if (!isset($_SESSION['LOGGED_IN_USER'])) {
+        <li><a href="users.show.php"><?php if (!isset($_SESSION['LOGGED_IN_USER'])) {
           echo "";
         } else {
           echo $_SESSION['LOGGED_IN_USER'];
