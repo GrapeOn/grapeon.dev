@@ -4,6 +4,7 @@ if (session_status() != PHP_SESSION_ACTIVE)
 	{ 
 		session_start();
 	}
+$_ENV = include '.env.php';
 require_once 'database/db_connect.php';
 require_once('utils/Input.php');
 require_once('utils/Auth.php');

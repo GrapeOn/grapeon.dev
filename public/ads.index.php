@@ -17,6 +17,19 @@ if (isset($_GET['page'])) {
 }
 $offset = ($page - 1) * 4;
 
+// find the total number of classified ads
+$stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table");
+$stmt_2->execute();
+$total = $stmt_2->fetch(PDO::FETCH_ASSOC);
+
+// divide the number of classified ads by the limit and round up for pagination 
+$number_pages = ceil($total['count']/$limit);
+
+// limit the page number
+if ($page > $number_pages) {
+    $page = $number_pages;
+}
+
 $keyword = "all";
 
 if (isset($_GET['keyword'])) {
@@ -82,10 +95,14 @@ if (isset($_GET['keyword'])) {
                 <hr>
             <?php endforeach ?>
         </tbody>
-    <h2>Page <?= $page?>
-    <a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
-    <a sclass="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
-    </h2>
+    <h4>Page <?= $page?>
+        <?php if ($page > 1 ): ?>
+            <a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
+        <?php endif; ?>
+        <?php if ($page < $number_pages): ?>
+            <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
+        <?php endif; ?>
+    </h4>
     <?php require_once '../views/partials/footer.php'; ?>
 
 

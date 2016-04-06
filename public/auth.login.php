@@ -1,7 +1,6 @@
 <?php
 require_once '../bootstrap.php';
 
-// starts a session or finds a session
 // allows us to use a $_SESSION superglobal
 
 function pageController()
@@ -45,6 +44,7 @@ extract(pageController());
 	<?php require_once '../views/partials/header.php'; ?>
 
     <form method="POST">
+        <a href="users.create.php">Not a user?</a><br><br>
         <label>User Name</label>
         <input type="text" name="username" value="<?= Input::escape($username)?>"><br>
         <label>Password</label>
