@@ -52,6 +52,26 @@ class Ad extends Model
         echo "DEBUG: the update() function ran to completion." . PHP_EOL;
     }
 
+    public static function find($id)
+    {
+        self::dbConnect();
+
+        $query = "SELECT * FROM ad_table WHERE ad_id= :id";
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+        
+         $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if (!empty($result)) {
+            $instance = new static($result);  // new Static = new User
+        }
+        return $instance;
+    }
+
 	}
 
 ?>

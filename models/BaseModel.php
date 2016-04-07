@@ -3,7 +3,7 @@
 abstract class Model
 {
     public static $dbc;
-    protected static $table;
+    protected static $table = '';
     protected $attributes = [];
     
     public function __construct($attributes = [])
@@ -56,26 +56,6 @@ abstract class Model
          $stmt->execute();
 
 	}
-
-	public static function find($id)
-    {
-        self::dbConnect();
-
-        $query = "SELECT * FROM users WHERE id= :id";
-        $stmt = self::$dbc->prepare($query);
-        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
-        
-         $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // The following code will set the attributes on the calling object based on the result variable's contents
-        $instance = null;
-        if (!empty($result)) {
-            $instance = new static($result);  // new Static = new User
-        }
-        return $instance;
-    }
 
     public function save()
     {
