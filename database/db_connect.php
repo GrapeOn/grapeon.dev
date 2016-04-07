@@ -1,5 +1,5 @@
 <?php
-
+$_ENV = include '../.env.php';
 
 //constants defined
 define('DB_NAME', $_ENV['DB_NAME']);
