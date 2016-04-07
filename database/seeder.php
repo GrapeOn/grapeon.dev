@@ -21,7 +21,8 @@ $ads_array = [
 		'business_address' => '69 Purple Pit Place',
 		'zip_code' => 11221,
 		'img' => 'grape_parade.png',
-		'category' => "event"
+		'category' => "event",
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => 'Free Grape Juggling Demo in the Park',
@@ -34,7 +35,8 @@ $ads_array = [
 		'business_address' => '69 Purple Pit Place',
 		'zip_code' => 11221,
 		'img' => 'gregg_grapeson.jpg',
-		'category' => "event"
+		'category' => "event",
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => 'Drink 5 Bottles of Wine, Get Your Stomach Pumped for 75% Off!',
@@ -47,7 +49,8 @@ $ads_array = [
 		'business_address' => '114 Grapeson Pit',
 		'zip_code' => 11221,
 		'img' => 'wine_chug.jpg',
-		'category' => "event"
+		'category' => "event",
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => '25% Off All Grapeskin Tuxedos',
@@ -60,7 +63,8 @@ $ads_array = [
 		'business_address' => '8 Grapewiggle Terrace',
 		'zip_code' => 11221,
 		'img' => 'grapeskin_suit.jpg',
-		'category' => "event"
+		'category' => "event",
+		'submitted_by' => 'margoober'
 	],
 		[
 		'discount_name' => '50% Off Tickets 2 The Raisin Rager',
@@ -73,7 +77,8 @@ $ads_array = [
 		'business_address' => '9 Heck Hole Plaza',
 		'zip_code' => 78212,
 		'img' => 'raisin_rager.jpg',
-		'category' => "event"
+		'category' => "event",
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => 'Free Juice Binge',
@@ -86,7 +91,8 @@ $ads_array = [
 		'business_address' => '198 Juice Jump Lane',
 		'zip_code' => 78212,
 		'img' => 'juice_binge.jpg',
-		'category' => "juice"
+		'category' => "juice",
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => '10% Off Jelly Massage',
@@ -99,7 +105,8 @@ $ads_array = [
 		'business_address' => '3 Jamwiggle Terrace',
 		'zip_code' => 78212,
 		'img' => 'jelly_massage.png',
-		'category' => 'jelly'
+		'category' => 'jelly',
+		'submitted_by' => 'margoober'
 	],
 	[
 		'discount_name' => 'Grape & Go Seek',
@@ -112,13 +119,14 @@ $ads_array = [
 		'business_address' => '90 Vineyards Highway',
 		'zip_code' => 78212,
 		'img' => 'grape_and_seek.jpg',
-		'category' => 'event'
+		'category' => 'event',
+		'submitted_by' => 'margoober'
 	]
 
 ];
 
 //prepare statements inserting into ad_table table
-$query = "INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img, category) VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img, :category)";
+$query = "INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img, category, submitted_by) VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img, :category, :submitted_by)";
 
 $stmt = $dbc->prepare($query);
 
@@ -135,6 +143,7 @@ foreach ($ads_array as $ad) {
 	$stmt->bindValue(':zip_code', $ad['zip_code'], PDO::PARAM_STR);
 	$stmt->bindValue(':img', $ad['img'], PDO::PARAM_STR);
 	$stmt->bindValue(':category', $ad['category'], PDO:: PARAM_STR);
+	$stmt->bindValue(':submitted_by', $ad['submitted_by'], PDO:: PARAM_STR);
 
 	$stmt->execute();
 }

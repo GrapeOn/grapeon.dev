@@ -11,8 +11,8 @@ class Ad extends Model
 	public function insert()
 	{
 		self::dbConnect();
-        $stmt = self::$dbc->prepare("INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img, category) 
-            VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img, :category)");
+        $stmt = self::$dbc->prepare("INSERT INTO ad_table (discount_name, description, percent_off, start_date, end_date, date_added, business_name, business_address, zip_code, img, category, submitted_by) 
+            VALUES (:discount_name, :description, :percent_off, :start_date, :end_date, :date_added, :business_name, :business_address, :zip_code, :img, :category, :submitted_by)");
         
         $stmt->bindValue(':discount_name', $this->discount_name, PDO::PARAM_STR);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -25,16 +25,17 @@ class Ad extends Model
         $stmt->bindValue(':zip_code', $this->zip_code, PDO::PARAM_INT);
         $stmt->bindValue(':img', $this->img, PDO::PARAM_STR);
         $stmt->bindValue(':category', $this->category, PDO::PARAM_STR);
+        $stmt->bindValue(':submitted_by', $this->submitted_by, PDO::PARAM_STR);
 
         $stmt->execute();
-        var_dump(self::$dbc->lastInsertId());
-        echo "DEBUG: the insert() function ran to completion." . PHP_EOL;
+        //var_dump(self::$dbc->lastInsertId());
+        //echo "DEBUG: the insert() function ran to completion." . PHP_EOL;
 	}
 
 	public function update()
 	{
 		self::dbConnect();
-        $stmt = self::$dbc->prepare("UPDATE ad_table SET discount_name = :discount_name, description = :description, percent_off = :percent_off, start_date = :start_date, end_date = :end_date, business_name = :business_name, business_address = :business_address, zip_code = :zip_code, category = :category WHERE id = :id");
+        $stmt = self::$dbc->prepare("UPDATE ad_table SET discount_name = :discount_name, description = :description, percent_off = :percent_off, start_date = :start_date, end_date = :end_date, business_name = :business_name, business_address = :business_address, zip_code = :zip_code, category = :category, submitted_by = :submitted_by WHERE id = :id");
     
        $stmt->bindValue(':discount_name', $this->discount_name, PDO::PARAM_STR);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -47,6 +48,7 @@ class Ad extends Model
         $stmt->bindValue(':zip_code', $this->zip_code, PDO::PARAM_INT);
         $stmt->bindValue(':img', $this->img, PDO::PARAM_STR);
         $stmt->bindValue(':category', $this->category, PDO::PARAM_STR);
+        $stmt->bindValue(':submitted_by', $this->submitted_by, PDO::PARAM_STR);
 
         $stmt->execute();
         echo "DEBUG: the update() function ran to completion." . PHP_EOL;
