@@ -1,6 +1,8 @@
 <?php
 require_once '../bootstrap.php';
 
+var_dump($_SESSION['LOGGED_IN_USER']);
+
 // allows us to use a $_SESSION superglobal
 
 function pageController()

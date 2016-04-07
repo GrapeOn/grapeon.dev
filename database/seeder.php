@@ -106,7 +106,7 @@ $ads_array = [
 		'zip_code' => 78212,
 		'img' => 'jelly_massage.png',
 		'category' => 'jelly',
-		'submitted_by' => 'margoober'
+		'submitted_by' => 'jellydaddy420'
 	],
 	[
 		'discount_name' => 'Grape & Go Seek',
@@ -121,6 +121,34 @@ $ads_array = [
 		'img' => 'grape_and_seek.jpg',
 		'category' => 'event',
 		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => '33% Off Jelly Mess Cleanup Services',
+		'description' => 'In a jam? Had a spill? Broken glass and your favorite jelly all over the floor? For a limited time get 33.33% off of jelly cleanup sessions conducted by our Jelly Mess Cleanup Services Task Force.',
+		'percent_off' => 33,
+		'start_date' => '2016-08-01',
+		'end_date' => '2016-11-03',
+		'date_added' => '2016-04-09',
+		'business_name' => 'Jelly Mess Cleanup Services' ,
+		'business_address' => '10 Jam Town Jiggleway',
+		'zip_code' => 78212,
+		'img' => 'jellyMess.png',
+		'category' => 'jelly',
+		'submitted_by' => 'jellydaddy420'
+	],
+	[
+		'discount_name' => 'Papyrus Brand Jelly Portable Jam Packs for Teens Who Are \'On The Go\' -- Half Off',
+		'description' => 'Teens -- are you tired of your lame parent saying \'no\' to your \'On The GO\' lifestyle? Say \'I\'m SICK of your HECKING RULES\' with these limited time offer On The Go Portable Jam Capsules!',
+		'percent_off' => 50,
+		'start_date' => '2016-08-01',
+		'end_date' => '2016-11-03',
+		'date_added' => '2016-04-09',
+		'business_name' => 'Papyrus Brand Jelly' ,
+		'business_address' => '100 Teen Town Drive',
+		'zip_code' => 78212,
+		'img' => 'papyrusJelly.png',
+		'category' => 'jelly',
+		'submitted_by' => 'jellydaddy420'
 	]
 
 ];
