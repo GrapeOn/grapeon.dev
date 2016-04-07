@@ -48,7 +48,7 @@ extract(pageController());
         <label>User Name</label>
         <input type="text" name="username" value="<?= Input::escape($username)?>"><br>
         <label>Password</label>
-        <input type="text" name="password" value="<?= Input::escape($password)?>"><br>
+        <input type="password" name="password" value="<?= Input::escape($password)?>"><br>
         <input type="submit">
     </form>
     <?php require_once '../views/partials/footer.php'; ?>
