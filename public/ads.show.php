@@ -2,12 +2,6 @@
 
 require_once '../bootstrap.php';
 
-var_dump($_FILES);
-
-
-    //redirect to thank-you page displaying submission with optional link to EDIT page
-
-
 $grape = [];
 
 if (isset($_GET['ad_id'])) {
@@ -43,6 +37,9 @@ if (isset($_GET['ad_id'])) {
 	<h2>
 		Take advantage of <?= $grape['discount_name']?>
 	</h2>
+	<h3>
+		Submitted by <a href="users.profile.php?username=<?= $grape['submitted_by'] ?>"><?= $grape['submitted_by'] ?></a>
+	</h3>
 	<!-- <h3>
 		This discount is <?= $grape['percent_off']?> % off!
 	</h3> -->
