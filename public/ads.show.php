@@ -7,6 +7,12 @@ require_once '../utils/Uploader.php';
 
 Uploader::uploadFunction();
 
+$profilePic = $_FILES["img"]["name"];
+//this conditional sets the image as a placeholder image if the user did not upload one.
+if ($_FILES['img']['name'] == "") {
+	$profilePic = "placeholderGrape.png";
+}
+
 if (
         (Input::get('discount_name', "") != "")
         && (Input::get('description', "") != "")
@@ -32,7 +38,7 @@ if (
         $submission->business_address = Input::get('business_address');
         $submission->zip_code = Input::get('zip_code');
         $submission->category = Input::get('category');
-        $submission->img = 'placeholderGrape.png';
+        $submission->img = $profilePic;
         //var_dump($submission);
         $submission->save();
         };
