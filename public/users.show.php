@@ -59,13 +59,12 @@ if (
 <body>
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
 
 				<img src="/img/<?= $currentProfile['avatar'] ?>">
 				<h1><?= $currentProfile['username'] ?></h1>
 				<h3><?= $currentProfile['first_name'] . ' ' . $currentProfile['last_name']?></h3>
 				<h3><?= $currentProfile['email_address'] ?></h3>
-				<h3>User Number <?= $currentProfile['user_id'] ?>!</h3>	
-
+				<h3>User Number <?= $currentProfile['user_id'] ?>!</h3>
+	<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>

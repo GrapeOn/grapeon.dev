@@ -5,7 +5,6 @@ $stmt = $dbc->prepare("SELECT * FROM ad_table");
 $stmt->execute();
 $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
 $limit = 3;
 
 if (isset($_GET['page'])) {
@@ -18,24 +17,18 @@ if (isset($_GET['page'])) {
 }
 $offset = ($page - 1) * 4;
 
-$keyword = Input::get('keyword');
-
 // find the total number of classified ads
-$category = Input::get('keyword');
-if ($category) 
-{
-    $stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table WHERE category = :category");
-    $stmt_2->bindValue(':category', $category, PDO::PARAM_STR);
-} 
-else
-{
-    $stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table");
-}
-    $stmt_2->execute();
-    $total = $stmt_2->fetch(PDO::FETCH_ASSOC);
+$stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table");
+$stmt_2->execute();
+$total = $stmt_2->fetch(PDO::FETCH_ASSOC);
 
 // divide the number of classified ads by the limit and round up for pagination 
 $number_pages = ceil($total['count']/$limit);
+
+// limit the page number
+if ($page > $number_pages) {
+    $page = $number_pages;
+}
 
 $keyword = "all";
 
@@ -43,16 +36,25 @@ if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
 }
 
-        if ($keyword != "all") {
-            $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
-            $stmt->bindValue(':keyword', $keyword, PDO::PARAM_STR);
-        } else {
-            $stmt = $dbc->prepare("SELECT * FROM ad_table LIMIT :limit OFFSET :offset");
-        }
-        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
-        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-        $stmt->execute();
-        $limited_ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if ($keyword != "all") {
+    $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
+    $stmt->bindValue(':keyword', $keyword, PDO::PARAM_STR);
+} else {
+    $stmt = $dbc->prepare("SELECT * FROM ad_table LIMIT :limit OFFSET :offset");
+}
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+$limited_ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//the following overrides $limited_ads_array to foreach through all submissions from a given user
+if (isset($_GET['submitted_by'])) {
+    $submitted_by = $_GET['submitted_by'];
+    $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE submitted_by = :submitted_by");
+    $stmt->bindValue(':submitted_by', $submitted_by, PDO::PARAM_STR);
+    $stmt->execute();
+    $limited_ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>
 <!DOCTYPE html>
@@ -100,13 +102,23 @@ if (isset($_GET['keyword'])) {
                 <hr>
             <?php endforeach ?>
         </tbody>
-    <h4>Page <?= $page?>
+
+<!--this kills the script before the pagination arrows can run IF we are viewing user submissions-->
+    <?php if (isset($_GET['submitted_by'])) { ?>
+        </body>
+        </html>  
+        <?php die(); ?>
+    <?php } ?>
+
+    <h4>Page <?= $page?></h4>
         <?php if ($page > 1 ): ?>
-            <a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
+            <h3><a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
         <?php endif; ?>
         <?php if ($page < $number_pages): ?>
             <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
-        <?php endif; ?>
-    </h4>
+        <?php endif; ?></h3>
     <?php require_once '../views/partials/footer.php'; ?>
+
+
 </body>
+</html>
