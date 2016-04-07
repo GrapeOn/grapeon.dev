@@ -62,34 +62,11 @@ var_dump($currentProfile);
 	<?php require_once '../views/partials/header.php'; ?>
 	<?php require_once '../views/partials/footer.php'; ?>
 
-	<table>
-		<tr>
-			<td>
 				<img src="/img/<?= $currentProfile['avatar'] ?>">
-			</td>
-			<td>
 				<h1><?= $currentProfile['username'] ?></h1>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<h3><?= $currentProfile['first_name'] ?></h3>
-			</td>
-			<td>
-				<h3><?= $currentProfile['last_name'] ?></h3>
-			</td>
-		</tr>
-		<tr>
-			<td>
+				<h3><?= $currentProfile['first_name'] . ' ' . $currentProfile['last_name']?></h3>
 				<h3><?= $currentProfile['email_address'] ?></h3>
-			</td>
-			<td>
-				<h3>You're User Number <?= $currentProfile['user_id'] ?>!</h3>
-			</td>
-		</tr>
-	</table>
-
-	
+				<h3>User Number <?= $currentProfile['user_id'] ?>!</h3>	
 
 </body>
 </html>
