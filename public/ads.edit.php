@@ -16,7 +16,6 @@ if (isset($_GET['ad_id'])) {
 {
 	header('Location: ads.edit.php?ad_id=1');
 }
-var_dump($grape);
 ?>
 
 <!DOCTYPE html>

@@ -43,7 +43,7 @@ class User extends Model
     public static function find($id)
     {
         self::dbConnect();
-        $query = "SELECT * FROM user_table WHERE id= :id";
+        $query = "SELECT * FROM user_table WHERE user_id= :id";
         $stmt = self::$dbc->prepare($query);
          $stmt->bindValue(':id', $id, PDO::PARAM_STR);
          $stmt->execute();
