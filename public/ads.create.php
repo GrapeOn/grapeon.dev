@@ -14,11 +14,6 @@ $stmt->execute();
 $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-$stmt2 = $dbc->prepare("SELECT COUNT(*) AS count FROM ad_table");
-$stmt2->execute();
-$count = $stmt2->fetch(PDO::FETCH_ASSOC);
-$newestEntry = $count['count'] + 1;
-
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +34,7 @@ $newestEntry = $count['count'] + 1;
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
 
-<form method="POST" action="ads.show.php?ad_id=<?= $newestEntry ?>" enctype="multipart/form-data">
+<form method="POST" action="ads.upload.php" enctype="multipart/form-data">
 	<label for="discount_name">Discount name</label><br>
 	<input type="text" name="discount_name" id="discount_name">
 	<br><br>
