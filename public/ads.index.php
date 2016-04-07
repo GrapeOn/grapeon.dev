@@ -5,6 +5,7 @@ $stmt = $dbc->prepare("SELECT * FROM ad_table");
 $stmt->execute();
 $ads_array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 $limit = 3;
 
 if (isset($_GET['page'])) {
@@ -17,26 +18,30 @@ if (isset($_GET['page'])) {
 }
 $offset = ($page - 1) * 4;
 
+$keyword = Input::get('keyword');
+
 // find the total number of classified ads
-$stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table");
-$stmt_2->execute();
-$total = $stmt_2->fetch(PDO::FETCH_ASSOC);
+$category = Input::get('keyword');
+if ($category) 
+{
+    $stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table WHERE category = :category");
+    $stmt_2->bindValue(':category', $category, PDO::PARAM_STR);
+} 
+else
+{
+    $stmt_2 = $dbc->prepare("SELECT count(ad_id) AS count FROM ad_table");
+}
+    $stmt_2->execute();
+    $total = $stmt_2->fetch(PDO::FETCH_ASSOC);
 
 // divide the number of classified ads by the limit and round up for pagination 
 $number_pages = ceil($total['count']/$limit);
-
-// limit the page number
-if ($page > $number_pages) {
-    $page = $number_pages;
-}
 
 $keyword = "all";
 
 if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
 }
-
-   
 
         if ($keyword != "all") {
             $stmt = $dbc->prepare("SELECT * FROM ad_table WHERE category = :keyword LIMIT :limit OFFSET :offset");
@@ -104,6 +109,4 @@ if (isset($_GET['keyword'])) {
         <?php endif; ?>
     </h4>
     <?php require_once '../views/partials/footer.php'; ?>
-
-
 </body>
