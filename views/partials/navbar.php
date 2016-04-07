@@ -16,7 +16,7 @@
     <!--  Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="ads.index.php">About <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="about.php">About <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Food <span class="caret"></span></a>
           <ul class="dropdown-menu">
