@@ -38,6 +38,7 @@ if (
         $submission->zip_code = Input::get('zip_code');
         $submission->category = Input::get('category');
         $submission->img = $profilePic;
+        $submission->submitted_by = $_SESSION['LOGGED_IN_USER'];
         //var_dump($submission);
         $submission->save();
 
