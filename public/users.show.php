@@ -1,7 +1,6 @@
 <?php
 
 require_once '../bootstrap.php';
-var_dump($_SESSION);
 
 //redirect to login page if a session is not active
 if (!isset($_SESSION['LOGGED_IN_USER'])) {
@@ -27,7 +26,7 @@ if (
 	$newUser->avatar = Input::get('avatar');
 	$newUser->join_date = date('Y-m-d');
 
-	var_dump($newUser);
+	// var_dump($newUser);
 
 	$newUser->save();
 }
@@ -41,7 +40,7 @@ if (
 
 	$currentProfile = $stmt->fetch(PDO::FETCH_ASSOC);
 
-var_dump($currentProfile);
+// var_dump($currentProfile);
 ?>
 
 <DOCTYPE! HTML>
