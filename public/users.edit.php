@@ -6,28 +6,19 @@ user input gets pushed into users_table
 require '../bootstrap.php';
 
 //this redirects logged in users away from user creation
-if (isset($_SESSION['LOGGED_IN_USER'])) {
+if (!isset($_SESSION['LOGGED_IN_USER'])) {
 	header("Location: http://grapeon.dev/auth.login.php");
 	exit();
 }
 
-$grape = [];
 
-if (isset($_GET['user_id'])) {
-	
-	$id = $_GET['user_id'];
+	$username = $_SESSION['LOGGED_IN_USER'];
 
-	$grape = User::find($id);
+	$grape = User::findByUsername($username);
 	
 	if (empty($grape)) {
-		header('Location: users.edit.php?user_id=1');
+		header('Location: auth.login.php');
 	}
-}
-else 
-{
-	header('Location: users.edit.php?user_id=1');
-}
-
 ?>
 
 <!DOCTYPE html>
