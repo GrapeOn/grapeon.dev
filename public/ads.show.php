@@ -3,45 +3,8 @@
 require_once '../bootstrap.php';
 
 var_dump($_FILES);
-require_once '../utils/Uploader.php';
 
-Uploader::uploadFunction();
 
-$profilePic = $_FILES["img"]["name"];
-//this conditional sets the image as a placeholder image if the user did not upload one.
-if ($_FILES['img']['name'] == "") {
-	$profilePic = "placeholderGrape.png";
-}
-
-if (
-        (Input::get('discount_name', "") != "")
-        && (Input::get('description', "") != "")
-        && (Input::get('percent_off', "") != "")
-        && (Input::get('start_date', "") != "")
-        && (Input::get('end_date', "") != "")
-        && (Input::get('business_name', "") != "")
-        && (Input::get('business_address', "") != "")
-        && (Input::get('zip_code', "") != "")
-        //&& (Input::getString('img'))
-        //&& (Input::has('img') != "")
-        && (Input::get('category', "") != "")
-    ) {
-    echo "the POST supervariable has everything it needs! the user submitted everything just fine." . PHP_EOL;
-        $submission = new Ad();
-        $submission->discount_name = Input::get('discount_name');
-        $submission->description = Input::get('description');
-        $submission->percent_off = Input::get('percent_off');
-        $submission->date_added = date('Y-m-d');
-        $submission->start_date = Input::get('start_date');
-        $submission->end_date = Input::get('end_date');
-        $submission->business_name = Input::get('business_name');
-        $submission->business_address = Input::get('business_address');
-        $submission->zip_code = Input::get('zip_code');
-        $submission->category = Input::get('category');
-        $submission->img = $profilePic;
-        //var_dump($submission);
-        $submission->save();
-        };
     //redirect to thank-you page displaying submission with optional link to EDIT page
 
 
