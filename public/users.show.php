@@ -65,6 +65,7 @@ if (
 				<h3><?= $currentProfile['first_name'] . ' ' . $currentProfile['last_name']?></h3>
 				<h3><?= $currentProfile['email_address'] ?></h3>
 				<h3>User Number <?= $currentProfile['user_id'] ?>!</h3>
+				<h4><a href= http://grapeon.dev/users.edit.php>Edit your profile</a></h4>
 	<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>
