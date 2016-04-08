@@ -10,3 +10,12 @@
 .aboutPargraph {
 	width: 200px;
 }
+
+.page-header {
+	text-align: center;
+	color: purple;
+}
+
+a, h1 {
+	color: purple;
+}

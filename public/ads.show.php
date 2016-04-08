@@ -33,33 +33,34 @@ if (isset($_GET['ad_id'])) {
 <body>
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	
-	<h2>
-		Take advantage of <?= $grape['discount_name']?>
-	</h2>
-	<h3>
-		Submitted by <a href="users.profile.php?username=<?= $grape['submitted_by'] ?>"><?= $grape['submitted_by'] ?></a>
-	</h3>
-	<!-- <h3>
-		This discount is <?= $grape['percent_off']?> % off!
-	</h3> -->
+	<div class="container">
+		<h2>
+			Take advantage of <?= $grape['discount_name']?>
+		</h2>
+		<h3>
+			Submitted by <a href="users.profile.php?username=<?= $grape['submitted_by'] ?>"><?= $grape['submitted_by'] ?></a>
+		</h3>
+		<!-- <h3>
+			This discount is <?= $grape['percent_off']?> % off!
+		</h3> -->
 
-	<h4 id="description">
-		<?= $grape['description'] ?>
-	</h4>
-	<h4> 
-		Grape this <?= $grape['business_name'] ?> deal at <?= $grape['business_address'] . ', ' . $grape['zip_code']?>
-	
-	<h5>
-		Offer ends <?= $grape['end_date'] ?>
-	</h5>
-	<p>
-		<img class="ad_image_show_page" src="/img/<?= $grape['img'] ?>"> 
-	</p>
+		<h4 id="description">
+			<?= $grape['description'] ?>
+		</h4>
+		<h4> 
+			Grape this <?= $grape['business_name'] ?> deal at <?= $grape['business_address'] . ', ' . $grape['zip_code']?>
+		
+		<h5>
+			Offer ends <?= $grape['end_date'] ?>
+		</h5>
+		<p>
+			<img class="ad_image_show_page" src="/img/<?= $grape['img'] ?>"> 
+		</p>
 
-	<br>
-		<a href="http://grapeon.dev/ads.index.php">Back to Listings</a>
-	<br>
+		<br>
+			<a href="http://grapeon.dev/ads.index.php">Back to Listings</a>
+		<br>
+	</div> <!-- close container -->
 
 <?php require_once '../views/partials/footer.php'; ?>
 </body>
