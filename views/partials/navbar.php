@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">GrapeOn</a>
+      <a class="navbar-brand" href="ads.index.php">GrapeOn</a>
     </div>
 
     <!--  Collect the nav links, forms, and other content for toggling -->
