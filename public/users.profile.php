@@ -9,7 +9,7 @@ $stmt = $dbc->query("SELECT * FROM user_table WHERE username = '$profileOf'");
 
 $currentProfile = $stmt->fetch(PDO::FETCH_ASSOC);
 
-var_dump($currentProfile['join_date']);
+// var_dump($currentProfile['join_date']);
 
 $stmt = $dbc->query("SELECT * FROM ad_table WHERE submitted_by = 'margoober'");
 
