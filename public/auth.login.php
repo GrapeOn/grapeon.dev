@@ -1,7 +1,7 @@
 <?php
 require_once '../bootstrap.php';
 
-var_dump($_SESSION['LOGGED_IN_USER']);
+// var_dump($_SESSION['LOGGED_IN_USER']);
 
 // allows us to use a $_SESSION superglobal
 
@@ -14,9 +14,9 @@ function pageController()
 		$result = Auth::attempt($username, $password);
 		if($result) {
 			header('Location: ads.index.php');
-			die();
-		} else if ($username != '' && $password != '') {
-	echo ("Password was incorrect. Try again :)");
+			// die();
+		} else if ($username != '' || $password != '') {
+	echo ("Incorrect info. Try again :)");
 	}
 	 return array (
 		'username' => $username,

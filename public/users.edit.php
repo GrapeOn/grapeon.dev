@@ -10,8 +10,6 @@ if (!isset($_SESSION['LOGGED_IN_USER'])) {
 	header("Location: http://grapeon.dev/auth.login.php");
 	exit();
 }
-
-
 	$username = $_SESSION['LOGGED_IN_USER'];
 
 	$grape = User::findByUsername($username);
@@ -66,8 +64,8 @@ if (!isset($_SESSION['LOGGED_IN_USER'])) {
 				<input type="password" name="password" id="password">
 			</td>
 			<td>
-					<label for="confirm_password">Confirm Password</label><br>
-					<input type="password" name="confirm_password" id="confirm_password">
+				<label for="confirm_password">Confirm Password</label><br>
+				<input type="password" name="confirm_password" id="confirm_password">
 			</td>
 		</tr>
 	</table>
