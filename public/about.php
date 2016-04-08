@@ -20,16 +20,18 @@ require_once '../bootstrap.php';
 <body>
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<h1>A Grape Opportunity</h1>
-	<h3>Connecting you to the best deals in the world of grape-related products</h3>
-	<div id="aboutParagraph">
-	<p>
-		Interested in all things grape? Do you have a heart of purple? How about that crippling wine addiction that costs a little too much to feed? Here at GrapeOn, We've Got You Covered&#169. Browse our listings for sweet deals on jellies, jams, wines, or just grapes <em>in the raw</em> (we won't tell)! It's the sharing economy! We are the Uber&#169 of the grape world!
-	</p>
-	<p>
-		You may only know us as the parent company and incubator for the hit GrapeOn spin-off <a href="https://www.groupon.com/">GroupOn</a>, but take a look around our Web Site to see what the original is all about! We're proud of what we've accomplished over at GroupOn, but that was really just a fun side project; this is our magnum opus.
-	</p>
-</div>
+	<div class="container">
+		<h1>A Grape Opportunity</h1>
+		<h3>Connecting you to the best deals in the world of grape-related products</h3>
+		<div id="aboutParagraph">
+		<p>
+			Interested in all things grape? Do you have a heart of purple? How about that crippling wine addiction that costs a little too much to feed? Here at GrapeOn, We've Got You Covered&#169. Browse our listings for sweet deals on jellies, jams, wines, or just grapes <em>in the raw</em> (we won't tell)! It's the sharing economy! We are the Uber&#169 of the grape world!
+		</p>
+		<p>
+			You may only know us as the parent company and incubator for the hit GrapeOn spin-off <a href="https://www.groupon.com/">GroupOn</a>, but take a look around our Web Site to see what the original is all about! We're proud of what we've accomplished over at GroupOn, but that was really just a fun side project; this is our magnum opus.
+		</p>
+		</div>
+	</div>
 	<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>
