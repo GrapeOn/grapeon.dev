@@ -38,7 +38,4 @@ $stmt = $dbc->query("SELECT * FROM ad_table WHERE submitted_by = 'margoober'");
 		<h3><a href="ads.index.php?submitted_by=<?= $currentProfile['username'] ?>">Submission History</a></h3>
 		<h3></h3>
 
-
-
-
 	<?php require_once '../views/partials/footer.php'; ?>
