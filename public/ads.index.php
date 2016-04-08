@@ -71,52 +71,53 @@ if (isset($_GET['submitted_by'])) {
         <title>Browse Hot Dealz!</title>
         <meta name="description" content="GrapeOn provides local classifieds for grape products and grape events with food, drink, and vines">
     </head>
-<body
+<body>
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-    <h2>Category: <?=$keyword?></h2>
-        <tbody>
-            <?php foreach ($limited_ads_array as $key => $ad) :?>
-                <tr>
-                    <td>
-                        <h2>
-                            <a href="ads.show.php?ad_id=<?= $ad['ad_id']?>"
-                            >
-                                <?= $ad['discount_name']?>
-                            </a>
-                        </h2>
-                    </td>
-                    <td>
-                        <h3>
-                            @ <?= $ad['business_name'] ?>
-                        </h3>
-                        <br>
-                    </td>
-                    <td>
-                        <img class="adsIndexPhotos ad_image" src="/img/<?= $ad['img'] ?>">
-                        <br>
-                        <br>
-                    </td>
-                </tr>
-                <hr>
-            <?php endforeach ?>
-        </tbody>
+    <div class="container">
+            <tbody>
+                <?php foreach ($limited_ads_array as $key => $ad) :?>
+                    <tr>
+                        <td>
+                            <h2>
+                                <a href="ads.show.php?ad_id=<?= $ad['ad_id']?>"
+                                >
+                                    <?= $ad['discount_name']?>
+                                </a>
+                            </h2>
+                        </td>
+                        <td>
+                            <h3>
+                                @ <?= $ad['business_name'] ?>
+                            </h3>
+                            <br>
+                        </td>
+                        <td>
+                            <img class="adsIndexPhotos ad_image" src="/img/<?= $ad['img'] ?>">
+                            <br>
+                            <br>
+                        </td>
+                    </tr>
+                    <hr>
+                <?php endforeach ?>
+            </tbody>
+    <h3>Category: <?=$keyword?></h2>
+    <!--this kills the script before the pagination arrows can run IF we are viewing user submissions-->
+        <?php if (isset($_GET['submitted_by'])) { ?>
+            </body>
+            </html>  
+            <?php die(); ?>
+        <?php } ?>
 
-<!--this kills the script before the pagination arrows can run IF we are viewing user submissions-->
-    <?php if (isset($_GET['submitted_by'])) { ?>
-        </body>
-        </html>  
-        <?php die(); ?>
-    <?php } ?>
-
-    <h4>Page <?= $page?></h4>
-        <?php if ($page > 1 ): ?>
-            <h3><a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
-        <?php endif; ?>
-        <?php if ($page < $number_pages): ?>
-            <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
-        <?php endif; ?></h3>
+        <h4>Page <?= $page?></h4>
+            <?php if ($page > 1 ): ?>
+                <h3><a class="paginator" href="?page=<?= $page - 1?>&keyword=<?=$keyword ?>">&#8606</a>
+            <?php endif; ?>
+            <?php if ($page < $number_pages): ?>
+                <a class="paginator" href="?page=<?= $page + 1?>&keyword=<?=$keyword ?>">&#8608</a>
+            <?php endif; ?></h3>
+    </div>
     <?php require_once '../views/partials/footer.php'; ?>
 
 
