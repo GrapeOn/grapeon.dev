@@ -33,7 +33,6 @@ if (isset($_GET['ad_id'])) {
 <body>
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
 	
 	<h2>
 		Take advantage of <?= $grape['discount_name']?>
@@ -57,13 +56,11 @@ if (isset($_GET['ad_id'])) {
 	<p>
 		<img class="ad_image_show_page" src="/img/<?= $grape['img'] ?>"> 
 	</p>
+
 	<br>
-		<a href="?ad_id=<?= $id - 1 ?>">Previous Discount</a>
-	<br>
-		<a href="?ad_id=<?= $id + 1 ?>">Next Discount</a>
-	<br>
-		<a href="">Back to Listings</a>
+		<a href="http://grapeon.dev/ads.index.php">Back to Listings</a>
 	<br>
 
+<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>

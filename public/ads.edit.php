@@ -16,6 +16,7 @@ if (isset($_GET['ad_id'])) {
 {
 	header('Location: ads.edit.php?ad_id=1');
 }
+var_dump($grape);
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ if (isset($_GET['ad_id'])) {
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
+
 
 <form method="POST" action="ads.index.php">
 	<!--TO DO: Change the action to take them to their own new entry!-->
@@ -80,6 +81,6 @@ if (isset($_GET['ad_id'])) {
 	<img src="/img/<?= $grape->img?>"> 
 	<button type="submit">Grape Job!</button>
 </form>
-
+	<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>

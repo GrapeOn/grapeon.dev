@@ -6,28 +6,17 @@ user input gets pushed into users_table
 require '../bootstrap.php';
 
 //this redirects logged in users away from user creation
-if (isset($_SESSION['LOGGED_IN_USER'])) {
+if (!isset($_SESSION['LOGGED_IN_USER'])) {
 	header("Location: http://grapeon.dev/auth.login.php");
 	exit();
 }
+	$username = $_SESSION['LOGGED_IN_USER'];
 
-$grape = [];
-
-if (isset($_GET['user_id'])) {
-	
-	$id = $_GET['user_id'];
-
-	$grape = User::find($id);
+	$grape = User::findByUsername($username);
 	
 	if (empty($grape)) {
-		header('Location: users.edit.php?user_id=1');
+		header('Location: auth.login.php');
 	}
-}
-else 
-{
-	header('Location: users.edit.php?user_id=1');
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -75,8 +64,8 @@ else
 				<input type="password" name="password" id="password">
 			</td>
 			<td>
-					<label for="confirm_password">Confirm Password</label><br>
-					<input type="password" name="confirm_password" id="confirm_password">
+				<label for="confirm_password">Confirm Password</label><br>
+				<input type="password" name="confirm_password" id="confirm_password">
 			</td>
 		</tr>
 	</table>
