@@ -149,8 +149,91 @@ $ads_array = [
 		'img' => 'papyrusJelly.png',
 		'category' => 'jelly',
 		'submitted_by' => 'jellydaddy420'
+	],
+	[
+		'discount_name' => 'Cinnamon Raisin Bread -- Clearance Sale 75% Off',
+		'description' => 'Sink your hungry teeth into some of our famous Cinnamon Raisin Bread at a quarter the cost!',
+		'percent_off' => 75,
+		'start_date' => '2016-08-01',
+		'end_date' => '2016-11-03',
+		'date_added' => '2016-04-09',
+		'business_name' => 'Raisin You Right Bakery',
+		'business_address' => '11 Brown Bread Boulevard',
+		'zip_code' => 78212,
+		'img' => 'raisinbread.png',
+		'category' => 'raisins',
+		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => '20% Off Raisin Rehydration Services',
+		'description' => 'Mother nature got your grapes all dried up? Turn those sad little raisins back into grapes with the help of our Raisin Rehydration & Rescue Task Force.',
+		'percent_off' => 75,
+		'start_date' => '2016-08-01',
+		'end_date' => '2016-11-03',
+		'date_added' => '2016-04-09',
+		'business_name' => 'Raisin Rehydration, LLC',
+		'business_address' => '11 Dry Bones Drive',
+		'zip_code' => 78212,
+		'img' => 'raisin_rehydration.png',
+		'category' => 'raisins',
+		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => 'Grapes by the Gallon!',
+		'description' => 'Limited time grapes by the gallon offer at Grape City! Prices cut by up to 70%!',
+		'percent_off' => 70,
+		'start_date' => '2016-09-01',
+		'end_date' => '2016-12-03',
+		'date_added' => '2016-04-09',
+		'business_name' => 'Grape City',
+		'business_address' => '11 Purple Place',
+		'zip_code' => 78212,
+		'img' => 'grapesbythegallon.png',
+		'category' => 'grapes',
+		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => 'Grape Guzzle Launch Party - Free Grape Smoothies!',
+		'description' => 'Come check out Grape Guzzle! Free grape smoothies for our May 18th opening celebration! Purple lips included.',
+		'percent_off' => 100,
+		'start_date' => '2016-05-18',
+		'end_date' => '2016-05-18',
+		'date_added' => '2016-04-20',
+		'business_name' => 'Grape Guzzle',
+		'business_address' => '22 Vine Time Lane',
+		'zip_code' => 78212,
+		'img' => 'grape_smoothie.png',
+		'category' => 'grapes',
+		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => 'Feed Grapes to Baby Foxes!',
+		'description' => 'Bring your family to the San Antonio Zoo to let them feed grapes to tiny foxes -- for free! This is a special celebration of the arrival of our new family of tiny forest foxes. Très bien!',
+		'percent_off' => 100,
+		'start_date' => '2016-10-01',
+		'end_date' => '2016-12-30',
+		'date_added' => '2016-04-09',
+		'business_name' => 'San Antonio Zoo',
+		'business_address' => '3903 N St Mary\'s St',
+		'zip_code' => 78212,
+		'img' => 'grape_fox.png',
+		'category' => 'grapes',
+		'submitted_by' => 'margoober'
+	],
+	[
+		'discount_name' => '50% Grape Costumes For Doggos',
+		'description' => 'Dress your pooch up in style this Halloween! Half off all grape costumes for doggos. This is one spooky deal!',
+		'percent_off' => 100,
+		'start_date' => '2016-10-01',
+		'end_date' => '2016-10-31',
+		'date_added' => '2016-09-09',
+		'business_name' => 'Party Palace',
+		'business_address' => '23 Commerce Street',
+		'zip_code' => 78212,
+		'img' => 'grape_dog.png',
+		'category' => 'grapes',
+		'submitted_by' => 'jellydaddy420'
 	]
-
 ];
 
 //prepare statements inserting into ad_table table
