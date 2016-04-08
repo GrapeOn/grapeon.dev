@@ -29,7 +29,6 @@ if (isset($_SESSION['LOGGED_IN_USER'])) {
 	<!--require page elements-->
 	<?php require_once '../views/partials/navbar.php'; ?>
 	<?php require_once '../views/partials/header.php'; ?>
-	<?php require_once '../views/partials/footer.php'; ?>
 
 <form method="POST" action="users.show.php">
 	<table>
@@ -92,6 +91,6 @@ if (isset($_SESSION['LOGGED_IN_USER'])) {
 	<br>
 	<button type="submit">ONE OF US!</button>
 </form>
-
+	<?php require_once '../views/partials/footer.php'; ?>
 </body>
 </html>
